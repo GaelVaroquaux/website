@@ -5,6 +5,13 @@ from __future__ import unicode_literals
 AUTHOR = u'Ga\xebl Varoquaux'
 SITENAME = u'Ga\xebl Varoquaux'
 SITEURL = 'http://gael-varoquaux.info'
+AUTHOR_EMAIL = 'gael.varoquaux@normalesup.org'
+GITHUB_URL = 'https://github.com/GaelVaroquaux/'
+TWITTER_USERNAME = 'GaelVaroquaux'
+DISQUS_SITENAME = "gaelvaroquaux"
+
+# global metadata to all the contents
+DEFAULT_METADATA = (('email', 'gael.varoquaux@normalesup.org'),)
 
 TIMEZONE = 'Europe/Paris'
 
@@ -22,16 +29,17 @@ TRANSLATION_FEED_ATOM = None
 #          ('You can modify those links in your config file', '#'),)
 
 DEFAULT_PAGINATION = 10
+SUMMARY_MAX_LENGTH = 50
 
 # Uncomment following line if you want document-relative URLs when developing
 RELATIVE_URLS = True
 
-# global metadata to all the contents
-DEFAULT_METADATA = (('email', 'gael.varoquaux@normalesup.org'),)
-
-AUTHOR_EMAIL = 'gael.varoquaux@normalesup.org'
-
 STATIC_PATHS = ['images']
+
+# apply the typogrify post-processing
+TYPOGRIFY = False
+
+USE_FOLDER_AS_CATEGORY = True
 
 ###############################################################################
 # For the pure theme
@@ -48,15 +56,15 @@ SOCIAL = (
     ('Google scholar', 'graduation-cap',
      'http://scholar.google.fr/citations?user=OGGu384AAAAJ'),
     ('twitter', 'twitter-square', 'https://twitter.com/GaelVaroquaux'),
-    ('Github', 'github', 'https://github.com/GaelVaroquaux/'),
+    ('Github', 'github', GITHUB_URL),
     ('flickr', 'flickr', 'https://www.flickr.com/photos/GaelVaroquaux'),
 )
 # Linkedin, slideshare
 
 # My gravatar
-PROFILE_IMAGE_URL = 'images/gael.png'
+PROFILE_IMAGE_URL = 'http://gael-varoquaux.info/images/gael.png'
 
 # The pretty picture for the sidebar
-COVER_IMG_URL = 'images/cover_img.jpg'
+COVER_IMG_URL = 'http://gael-varoquaux.info/images/cover_img.jpg'
 
 TAGLINE = "computer / data / brain science"

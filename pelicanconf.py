@@ -28,6 +28,9 @@ TRANSLATION_FEED_ATOM = None
 #          ('Jinja2', 'http://jinja.pocoo.org/'),
 #          ('You can modify those links in your config file', '#'),)
 
+ARTICLE_URL = '{category}/{slug}.html'
+ARTICLE_SAVE_AS = '{category}/{slug}.html'
+
 DEFAULT_PAGINATION = 10
 SUMMARY_MAX_LENGTH = 50
 

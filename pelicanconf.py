@@ -23,7 +23,11 @@ CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 
 # Blogroll
-#LINKS =  (('Pelican', 'http://getpelican.com/'),
+MENUITEMS =  (
+          ('Selected posts', 'tag/selected.html'),
+          ('Latest posts', 'index.html'),
+          ('About me', 'pages/about.html'),
+          )
 #          ('Python.org', 'http://python.org/'),
 #          ('Jinja2', 'http://jinja.pocoo.org/'),
 #          ('You can modify those links in your config file', '#'),)
@@ -37,7 +41,7 @@ SUMMARY_MAX_LENGTH = 50
 # Uncomment following line if you want document-relative URLs when developing
 RELATIVE_URLS = True
 
-STATIC_PATHS = ['images']
+STATIC_PATHS = ['images', 'science/attachments', 'python/attachments']
 
 # apply the typogrify post-processing
 TYPOGRIFY = False
@@ -59,7 +63,7 @@ SOCIAL = (
     ('Google scholar', 'graduation-cap',
      'http://scholar.google.fr/citations?user=OGGu384AAAAJ'),
     ('twitter', 'twitter-square', 'https://twitter.com/GaelVaroquaux'),
-    ('Github', 'github', GITHUB_URL),
+    ('GitHub', 'github', GITHUB_URL),
     ('flickr', 'flickr', 'https://www.flickr.com/photos/GaelVaroquaux'),
 )
 # Linkedin, slideshare

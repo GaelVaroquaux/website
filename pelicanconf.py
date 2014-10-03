@@ -25,15 +25,17 @@ TRANSLATION_FEED_ATOM = None
 # Blogroll
 MENUITEMS =  (
           ('Selected posts', 'tag/selected.html'),
-          ('Latest posts', 'index.html'),
-          ('About me', 'pages/about.html'),
+          ('Latest posts', 'index.html#posts'),
+          ('About me', 'about.html'),
           )
-#          ('Python.org', 'http://python.org/'),
-#          ('Jinja2', 'http://jinja.pocoo.org/'),
-#          ('You can modify those links in your config file', '#'),)
 
 ARTICLE_URL = '{category}/{slug}.html'
 ARTICLE_SAVE_AS = '{category}/{slug}.html'
+
+
+PAGE_URL = '{slug}.html'
+URL = '{category}/{slug}.html'
+PAGE_SAVE_AS = '{slug}.html'
 
 DEFAULT_PAGINATION = 10
 SUMMARY_MAX_LENGTH = 50

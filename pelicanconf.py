@@ -41,12 +41,16 @@ SUMMARY_MAX_LENGTH = 50
 # Uncomment following line if you want document-relative URLs when developing
 RELATIVE_URLS = True
 
-STATIC_PATHS = ['images', 'science/attachments', 'python/attachments']
+STATIC_PATHS = ['images', 'science/attachments', 'programming/attachments',
+                'personnal/attachments']
 
 # apply the typogrify post-processing
 TYPOGRIFY = False
 
 USE_FOLDER_AS_CATEGORY = True
+
+import logging
+LOG_FILTER = [(logging.WARN, 'Empty alt attribute for image.*')]
 
 ###############################################################################
 # For the pure theme

@@ -13,11 +13,16 @@
 	$(document).ready(function () {
 	    $(window).resize();
 	});
-
 	$(window).on('resize', function () {
 	    var position = $("iframe.fullscreen").position();
-	    $("iframe.fullscreen").height($(window).height()
-					   - position.top - 10);
+	    if ($(window).width() > 767) {
+		$("iframe.fullscreen").height($(window).height()
+					    - position.top - 10);
+	    } else {
+		$("iframe.fullscreen").height($(window).height()
+					    - 10);
+		
+	    } ;
 	});
     </script>
     <style>

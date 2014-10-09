@@ -46,13 +46,20 @@ RELATIVE_URLS = True
 STATIC_PATHS = ['images', 'science/attachments', 'programming/attachments',
                 'personnal/attachments']
 
+IGNORE_FILES = ['content/science/attachments/citations.html',
+                '.#*',]
+
 # apply the typogrify post-processing
 TYPOGRIFY = False
+
+# Better settings for the rst generation
+DOCUTILS_SETTINGS = dict(smart_quotes=True)
 
 USE_FOLDER_AS_CATEGORY = True
 
 import logging
-LOG_FILTER = [(logging.WARN, 'Empty alt attribute for image.*')]
+LOG_FILTER = [(logging.WARN, 'Empty alt attribute for image.*'),
+              (logging.ERROR, 'Skipping science/attachments/citations.html')]
 
 ###############################################################################
 # For the pure theme

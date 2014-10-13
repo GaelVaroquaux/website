@@ -61,6 +61,12 @@ import logging
 LOG_FILTER = [(logging.WARN, 'Empty alt attribute for image.*'),
               (logging.ERROR, 'Skipping science/attachments/citations.html')]
 
+
+PLUGINS = [
+    'minify',
+]
+
+
 ###############################################################################
 # For the pure theme
 

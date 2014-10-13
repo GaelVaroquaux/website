@@ -4,7 +4,7 @@ LaTeX files of my PhD thesis
 ==========================================
 
 :date: 2008-04-01
-:tags: latex, publishing, sticky
+:tags: latex, publishing
 :summary: The main files of my phd thesis, to give an example of the LaTeX code used
 
 `Here <attachments/gaeltex.zip>`_ are the main files I use for writing

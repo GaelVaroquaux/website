@@ -4,7 +4,7 @@ Garamond fonts for LaTeX
 ==========================================
 
 :date: 2006-10-01
-:tags: latex, publishing, sticky, selected
+:tags: latex, publishing, selected
 :summary: An easy to install version of Garamond fonts for LaTeX
 
 `Garamond fonts <http://en.wikipedia.org/wiki/Garamond>`_ are a large

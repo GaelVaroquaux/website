@@ -8,7 +8,6 @@ SITEURL = 'http://gael-varoquaux.info'
 AUTHOR_EMAIL = 'gael.varoquaux@normalesup.org'
 GITHUB_URL = 'https://github.com/GaelVaroquaux/'
 TWITTER_USERNAME = 'GaelVaroquaux'
-DISQUS_SITENAME = "gaelvaroquaux"
 
 # global metadata to all the contents
 DEFAULT_METADATA = (('email', 'gael.varoquaux@normalesup.org'),)
@@ -21,6 +20,9 @@ DEFAULT_LANG = u'en'
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
+
+# Posts in the future get assigned a draft status
+WITH_FUTURE_DATES = True
 
 # Blogroll
 MENUITEMS =  (
@@ -62,10 +64,6 @@ LOG_FILTER = [(logging.WARN, 'Empty alt attribute for image.*'),
               (logging.ERROR, 'Skipping science/attachments/citations.html')]
 
 
-PLUGINS = [
-    'minify',
-]
-
 
 ###############################################################################
 # For the pure theme
@@ -83,7 +81,8 @@ SOCIAL = (
      'http://scholar.google.fr/citations?user=OGGu384AAAAJ'),
     ('twitter', 'twitter-square', 'https://twitter.com/GaelVaroquaux'),
     ('GitHub', 'github', GITHUB_URL),
-    ('flickr', 'flickr', 'https://www.flickr.com/photos/GaelVaroquaux'),
+    ('Artwork', 'camera-retro', 'http://gaelvaroquaux.tumblr.com'),
+    #('flickr', 'flickr', 'https://www.flickr.com/photos/GaelVaroquaux'),
 )
 # Linkedin, slideshare
 

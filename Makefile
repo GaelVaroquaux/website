@@ -85,7 +85,7 @@ stopserver:
 	@echo 'Stopped Pelican and SimpleHTTPServer processes running in background.'
 
 publish:
-	python grab_scholar.py
+	#python grab_scholar.py
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
 	for file in output/theme/css/*.css; do cleancss -o $$file $$file ; done
 

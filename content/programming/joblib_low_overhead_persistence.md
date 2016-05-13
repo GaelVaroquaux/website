@@ -1,9 +1,8 @@
 Title: Joblib persistence improvements
 Date: 2016-05-20
-Category: Python
 Tags: joblib, persistence, big data
 Slug: New low-overhead persistence in joblib for big data
-Authors: Alexandre Abadie, Gaël Varoquaux
+Authors: Alexandre Abadie & Gaël Varoquaux
 Summary: New persistence in joblib enables low-overhead storage of big data contained in arbitrary objects
 
 ## Joblib persistence improvements

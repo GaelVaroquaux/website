@@ -9,9 +9,6 @@ AUTHOR_EMAIL = 'gael.varoquaux@normalesup.org'
 GITHUB_URL = 'https://github.com/GaelVaroquaux/'
 TWITTER_USERNAME = 'GaelVaroquaux'
 
-# global metadata to all the contents
-DEFAULT_METADATA = (('email', 'gael.varoquaux@normalesup.org'),)
-
 TIMEZONE = 'Europe/Paris'
 
 DEFAULT_LANG = u'en'
@@ -93,3 +90,9 @@ PROFILE_IMAGE_URL = 'http://gael-varoquaux.info/images/gael.png'
 COVER_IMG_URL = 'http://gael-varoquaux.info/images/cover_img.jpg'
 
 TAGLINE = "computer / data / brain science"
+
+# global metadata to all the contents
+DEFAULT_METADATA = (('email', 'gael.varoquaux@normalesup.org'),
+                    ('profile_image', PROFILE_IMAGE_URL))
+
+

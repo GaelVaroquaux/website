@@ -229,7 +229,7 @@ extendable by allowing external project to register new ones. Some work has
 already been started with LZO (using python-lzo) but LZ4 also seems to be an
 interesting ones.
 
-Thanks to [@lesteve](), [@ogrisel]() and [@GaelVaroquaux]() for the valuable help, reviews
+Thanks to [@lesteve](https://github.com/lesteve), [@ogrisel](https://github.com/ogrisel) and [@GaelVaroquaux](https://github.com/GaelVaroquaux) for the valuable help, reviews
 and support.
 
 

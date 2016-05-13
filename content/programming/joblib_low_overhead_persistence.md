@@ -74,7 +74,7 @@ and in a console, run:
 ```bash
 $ prof run memory_profile.py && mprof plot
 ```
-![Memory profiler](./old_pickle_mem_profile.png)
+![Memory profiler]({filename}attachments/old_pickle_mem_profile.png)
 
 Let's now discover the new features and improvements that comes
 with 0.10.0. After that we'll give some comparison benchmarks and explain how
@@ -112,7 +112,7 @@ If we try again the examples above, we can already see improvements:
         [ 1.,  1.,  1., ...,  1.,  1.,  1.]])]
 ```
 * Memory usage is now stable:
-![Memory profiler](./new_pickle_mem_profile.png)
+![Memory profiler]({filename}attachments/new_pickle_mem_profile.png)
 
 Let's now play a bit with the new compression methods available in the python
 library: __zlib, gzip, bz2, lzma and xz__ (the last 2 ones are available since

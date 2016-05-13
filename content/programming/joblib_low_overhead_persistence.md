@@ -157,8 +157,9 @@ making compressed pickle load transparent:
 To conclude on those new exciting features, we can say a few words on file
 handles with contextlib. Indeed, all numpy arrays are stored in a
 single file, itself using standard compression formats and, as a consequence,
-__joblib now takes advantage of python `with` statement__ when using objects
+__joblib now takes advantage of python `with` statement__ with objects
 implementing the buffer interface:
+
 ```python
 >>> with open('/tmp/test.pkl', 'wb') as f:
 >>>    joblib.dump(obj, f)

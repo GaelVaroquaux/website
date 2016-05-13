@@ -171,8 +171,8 @@ implementing the buffer interface:
         ..., 
         [ 1.,  1.,  1., ...,  1.,  1.,  1.]])]
 ```
-This also works with regular file, like `gzip.GzipFile` (or bz2.Bz2File,
-lzma.LzmaFile):
+This also works with regular compressor file object, like `gzip.GzipFile` (or
+bz2.Bz2File, lzma.LzmaFile):
 ```python
 >>> import gzip
 >>> with gzip.GzipFile('/tmp/test.pkl.gz', 'wb') as f:
@@ -182,8 +182,9 @@ lzma.LzmaFile):
 >>>    print(joblib.load(f))
 ```
 Be sure that you use a decompressor matching the internal compression when
-loading with the above method. Anyway, if unsure, simply use `open`, joblib will
-__select the right decompressor__ for you:
+loading with the above method, otherwise python will raise an error. Anyway, if
+you are unsure, simply use `open`, joblib will __select the right decompressor__
+for you:
 ```python
 >>> with open('/tmp/test.pkl.gz', 'rb') as f:
 >>>     print(joblib.load(f))

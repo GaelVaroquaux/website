@@ -1,6 +1,5 @@
 Title: Joblib persistence improvements
 Date: 2016-05-20
-Category: Python
 Tags: joblib, persistence, big data
 Slug: New low-overhead persistence in joblib for big data
 Authors: Alexandre Abadie & Gaël Varoquaux
@@ -30,60 +29,43 @@ in separate `.npy` files, increasing the complexity of the cache management on
 the file system.
 
 Let's explain those problems with a bit of code:
+
 * Container with several numpy arrays is persisted in multiple files:
 ```python
 >>> import numpy as np
 >>> import joblib
 >>> joblib.__version__
 '0.9.4'
->>> obj = [np.arange(1000000), np.ones((10000, 10000))]
+>>> obj = [np.arange(1000000), np.random.random((10000, 10000))]
 
 # 3 files are generated:
 >>> joblib.dump(obj, '/tmp/test.pkl', compress=True)
 ['/tmp/test.pkl', '/tmp/test.pkl_01.npy', '/tmp/test.pkl_02.npy']
 >>> joblib.load('/tmp/test.pkl')
 [array([     0,      1,      2, ..., 999997, 999998, 999999]),
- array([[ 1.,  1.,  1., ...,  1.,  1.,  1.],
+ array([[ 0.69306351,  0.28983859,  0.64536034, ...,  0.64458594,
         ..., 
-        [ 1.,  1.,  1., ...,  1.,  1.,  1.]])]
+          0.79832186,  0.46389441]])]
 ```
 * Memory footprint can be profiled using the excellent package
-[memory_profiler package](https://pypi.python.org/pypi/memory_profiler) (on
-`joblib.dump` and `joblib.load` functions):
-```python
-# memory_profile.py
-import numpy as np
-import joblib
-import gc
+[memory_profiler package](https://pypi.python.org/pypi/memory_profiler) with the
+following
+[GitHub gist](https://gist.github.com/aabadie/7cba3385406d1cec7d3dd4407ba3f164):
 
-@profile
-def generate_data():
-    return [np.arange(1000000), np.ones((10000, 10000))]
-
-def main():
-    obj = generate_data()
-    joblib.dump(obj, '/tmp/test.pkl', compress=True)
-    del obj
-    gc.collect()
-    joblib.load('/tmp/test.pkl')
-
-if __name__ == '__main__':
-    main()
-```
-and in a console, run:
-```bash
-$ prof run memory_profile.py && mprof plot
-```
 ![Memory profiler]({filename}attachments/old_pickle_mem_profile.png)
 
-Let's now discover the new features and improvements that comes
-with 0.10.0. After that we'll give some comparison benchmarks and explain how
-this is possible.
+We obviously see the instability of memory usage during the calls to `dump` and
+`load` functions.
+
+Let's now discover the new features and improvements that comes with
+version 0.10.0. After that, we'll compare speed and memory consumption with
+other libraries and discuss the results. Then we'll give some details about the
+new internal implementation.
 
 ### What's new
 
 joblib now __persists numpy arrays in a single file__ and with __no memory
-copies__ during read and write steps. This __allows contextlib syntaxic sugar
+copies__ during dump and load steps. This __allows contextlib syntaxic sugar
 usage__ when playing with cached objects. The other big step forward
 is the internal usage of __all compression formats available in the standard
 library__.
@@ -100,16 +82,16 @@ If we try again the examples above, we can already see improvements:
 >>> import joblib
 >>> joblib.__version__
 '0.10.0'
->>> obj = [np.arange(1000000), np.ones((10000, 10000))]
+>>> obj = [np.arange(1000000), np.random.random((10000, 10000))]
 
 # only 1 file is used:
 >>> joblib.dump(obj, '/tmp/test.pkl', compress=True)
 ['/tmp/test.pkl']
 >>> joblib.load('/tmp/test.pkl')
 [array([     0,      1,      2, ..., 999997, 999998, 999999]),
- array([[ 1.,  1.,  1., ...,  1.,  1.,  1.],
+ array([[ 0.69306351,  0.28983859,  0.64536034, ...,  0.64458594,
         ..., 
-        [ 1.,  1.,  1., ...,  1.,  1.,  1.]])]
+          0.79832186,  0.46389441]])]
 ```
 * Memory usage is now stable:
 ![Memory profiler]({filename}attachments/new_pickle_mem_profile.png)
@@ -143,23 +125,21 @@ to be given explicitly:
 ['/tmp/test.pkl.compressed']
 ```
 
-Compressed files are valid regarding the compression method used. Joblib uses
-the Magic number at the beginning of the file to choose the right decompressor,
+Joblib uses the Magic number of the file to determine the right decompressor,
 making compressed pickle load transparent:
 ```python
 >>> joblib.load('/tmp/test.compressed')
 [array([     0,      1,      2, ..., 999997, 999998, 999999]),
- array([[ 1.,  1.,  1., ...,  1.,  1.,  1.],
+ array([[ 0.69306351,  0.28983859,  0.64536034, ...,  0.64458594,
         ..., 
-        [ 1.,  1.,  1., ...,  1.,  1.,  1.]])]
+          0.79832186,  0.46389441]])]
 ```
 
-To conclude on those new exciting features, we can say a few words on file
+To conclude on those new exciting features, let's say a few words on file
 handles with contextlib. Indeed, all numpy arrays are stored in a
 single file, itself using standard compression formats and, as a consequence,
-__joblib now takes advantage of python `with` statement__ with objects
-implementing the buffer interface:
-
+__joblib now takes advantage of python `with` statement__ with file-like
+objects:
 ```python
 >>> with open('/tmp/test.pkl', 'wb') as f:
 >>>    joblib.dump(obj, f)
@@ -167,12 +147,13 @@ implementing the buffer interface:
 >>> with open('/tmp/test.pkl', 'rb') as f:
 >>>    print(joblib.load(f))
 [array([     0,      1,      2, ..., 999997, 999998, 999999]),
- array([[ 1.,  1.,  1., ...,  1.,  1.,  1.],
+ array([[ 0.69306351,  0.28983859,  0.64536034, ...,  0.64458594,
         ..., 
-        [ 1.,  1.,  1., ...,  1.,  1.,  1.]])]
+          0.79832186,  0.46389441]])]
 ```
-This also works with regular compressor file object, like `gzip.GzipFile` (or
-bz2.Bz2File, lzma.LzmaFile):
+          
+This also works with compression file object available in the standard library,
+like `gzip.GzipFile`, `bz2.Bz2File` or `lzma.LzmaFile`:
 ```python
 >>> import gzip
 >>> with gzip.GzipFile('/tmp/test.pkl.gz', 'wb') as f:
@@ -189,50 +170,139 @@ for you:
 >>> with open('/tmp/test.pkl.gz', 'rb') as f:
 >>>     print(joblib.load(f))
 [array([     0,      1,      2, ..., 999997, 999998, 999999]),
- array([[ 1.,  1.,  1., ...,  1.,  1.,  1.],
+ array([[ 0.69306351,  0.28983859,  0.64536034, ...,  0.64458594,
         ..., 
-        [ 1.,  1.,  1., ...,  1.,  1.,  1.]])]
+          0.79832186,  0.46389441]])]
 ```
 
-### Memory consumption and performance comparisons
+### Speed, memory consumption and discussion
 
-No more memory copies ! The overhead only corresponds to the size of the buffers (~30MB)
-used during writing/reading steps.
+It's now time to have a look at performances. We now have a friendlier API but
+does it have an impact on them ? The answer is __it depends on the data__.
 
-With large arrays the speed is slightly faster : put nice matplotlib figures here.
+Joblib philosophy is to have the __minimum dependencies__ (only numpy) and to
+__be agnostic to the input data__. So joblib's goal is to able to deal with any
+kind of data while trying to __be as efficient as possible with numpy arrays__.
 
-Discussion with dict/list : io.BytesIO does copy in memory but is faster
-compared to io.BufferedIO : put some profiling here.
+To illustrate the benefits and cost of the new persistence implementation, let's
+now compare different use cases with different libraries.
+The tested use cases are:
+
+* Use a real life data from scikit-learn: Labelled Faces in the Wild (LFW),
+which is a Bunch object (e.g dict-like) containing one big numpy array,
+* Use an extrem big numpy array filled with random values,
+* Use an extrem big dictionary filled with random keys and values.
+
+The compared libraries are:
+
+* Joblib, tested for raw and compressed (zlib) files, with 2 different versions,
+* Pickle, tested for raw files,
+* Numpy, tested for raw and compressed (zlib) files.
+
+The following results were generated with this
+[GitHub gist](https://gist.github.com/aabadie/2ba94d28d68f19f87eb8916a2238a97c):
+
+* With LFW:
+![Memory profiler]({filename}attachments/persistence_lfw_bench.png)
+* With a pure random numpy array (10000x10000):
+![Memory profiler]({filename}attachments/persistence_big_array_bench.png)
+* With a dictionary composed of random keys and values:
+![Memory profiler]({filename}attachments/persistence_big_dict_bench.png)
+
+First, we can put aside the disk space used as the results are as expected : non
+compressed files has the same size as the persisted data, compressed files are
+smaller.
+
+Regarding the speed, the results between joblib 0.9.4 and 0.10.0 are similar
+except for the dictionary where the new version is a bit slower with compression
+(8.58/5.66 s against 7.42/3.98 s).
+Another interesting point: in any case, joblib is clearly slower than numpy or
+pickle with the big dictionary .
+Numpy and pickle are slower than joblib when persisting data with numpy arrays.
+
+Let's now have a look at the memory consumption for numpy arrays. Without
+compression, old and new joblib versions are the same but with compression, the
+old joblib version is clearly worse than the new one.
+Still with numpy arrays, pickle does a lot memory copies. Numpy is even worse in
+the LFW use case but not when using a pure numpy array. This can be
+explained by the fact that numpy relies on pickle if the object is not a pure
+numpy array (a list or a dict for example), so in this case it inherits the
+memory drawbacks from pickle for numpy arrays. For pure numpy arrays, numpy uses
+its interal save/load functions which are quite efficient in terms of speed and
+memory consumption.
+
+Now the question is : why pickle and numpy are so fast/memory safe when
+persisting the big dict. The answer comes from pickle itself and more precisely
+its C implementation. This is the weak point of joblib: in order to be
+efficient with numpy arrays, it has to use the python implementation of pickle
+(with Pickler/Unpickler subclasses), which is really really slower than the C
+implementation. As
+[numpy uses pickle](https://github.com/numpy/numpy/blob/master/numpy/lib/npyio.py)
+(e.g cPickle) for non numpy array objects, it is faster in this case.
+
+<pre>
+Discuss this point ?
+Small speed difference with dict/list objects between new/old joblib :
+io.BytesIO does copy in memory but is faster compared to io.BufferedIO : put
+some profiling here.
+</pre>
 
 ### Enhancement strategy
 
-Hack on top of pickle (already there), different strategies tested, use low level numpy primitives
-(e.g nditer). No more compatible with
+It is now time to give some details about the internal implementation of joblib
+persistence functions.
 
-Performance improvements : implemented a custom Zlib file compressor (for zlib and
-gzip) + heavy use of buffering.
+First, as we said above, joblib historically relies on pickle python
+implementation through Pickler/Unpickler subclasses. This has been sligthly
+refactored in the new version as follows:
 
-Side effects : the generated pickle is not compatible with standard library
-pickle module.
+* When pickling an arbitrary object, if an `np.ndarray` object is reached,
+  instead of using the default pickling functions (__reduce__()), the joblib
+  Pickler replaces in pickle stream the ndarray with a wrapper object containing
+  all important array metadata (shape, dtype, flags). Then it writes the array
+  content in the pickle file. __Note that this step breaks the pickle
+  compatibility.__.
+* When unpickling a pickle file, when pickle reaches the array wrapper, as the
+  object is already fully read in the pickle stream, the file handle is at the
+  beginning of the array content. So at this point the Unpickler simply
+  reconstruct an array based on the metadata contained in the wrapper and then
+  fill the array buffer directly from the file. The object returned is the
+  reconstructed array, the array wrapper being dropped.
+
+This technique allows joblib to pickle all objects in a single file but also to
+stay efficient in memory consumption during dump and load.
+
+The other main change in the current persitence workflow concerns the
+compression strategy. As the pickling refactoring described above opened the door
+to file objects usage, joblib is now able to persist data in any kind of file
+object: `open`, `gzip.GzipFile`, `bz2.Bz2file` and `lzma.LzmaFile`. For
+performance reason and usability, the new joblib version uses its own file
+object `BinaryZlibFile` to compress pickle using zlib compression. Indeed,
+`GzipFile` could be seen as a good candidate as it's also based on zlib but the
+format computes a crc for each chunk of compressed data, making it slower (we
+noticed a performance drop of 15%).
 
 ### Conclusion and future work
 
 Memory copies were a ressource gap when caching on disk very large
 numpy arrays, e.g arrays with a size close to the available RAM on the computer.
 The solution was to use intensive buffering and a lot of hacking on top of
-pickle and numpy.
+pickle and numpy. Unfortunately, this doesn't solve the poor performance with
+big dictionaries or list compared to a `cPickle` base strategy.
 
 Pickling numpy arrays using file handle is a first step toward pickling in
-sockets. Then it make broadcasting of data possible between computing units on a
-network.
+sockets. Then it will make broadcasting of data possible between computing units
+on a network.
 
 Another potential improvements is to make the supported list of compressors
 extendable by allowing external project to register new ones. Some work has
 already been started with LZO (using python-lzo) but LZ4 also seems to be an
 interesting ones.
 
-Thanks to [@lesteve](https://github.com/lesteve), [@ogrisel](https://github.com/ogrisel) and [@GaelVaroquaux](https://github.com/GaelVaroquaux) for the valuable help, reviews
-and support.
+Thanks to [@lesteve](https://github.com/lesteve),
+[@ogrisel](https://github.com/ogrisel) and
+[@GaelVaroquaux](https://github.com/GaelVaroquaux) for the valuable help,
+reviews and support.
 
 
 ###Notes

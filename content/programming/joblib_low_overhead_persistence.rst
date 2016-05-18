@@ -12,7 +12,7 @@ New persistence strategy in joblib
 The problem
 ===========
 
-Joblib is a powerful python package when working on so called **Big Data**, e.g
+Joblib is a powerful Python package when working on so called **Big Data**, e.g
 data that can consume up to the available RAM (several GB nowadays), generally
 numpy arrays or arbitrary containers (list, dict) of numpy arrays. In order to
 speedup Big Data processing and management, joblib uses a transparent disk
@@ -38,24 +38,18 @@ Let's put in evidence those problems with a bit of code:
   .. code-block:: python
                  
                   >>> import numpy as np
-                  >>> import joblib
-                  >>> joblib.__version__
-                  '0.9.4'
+                  >>> import joblib # joblib version: 0.9.4
                   >>> obj = [np.ones((5000, 5000)), np.random.random((5000, 5000))]
                   
                   # 3 files are generated:
                   >>> joblib.dump(obj, '/tmp/test.pkl', compress=True)
                   ['/tmp/test.pkl', '/tmp/test.pkl_01.npy.z', '/tmp/test.pkl_02.npy.z']
                   >>> joblib.load('/tmp/test.pkl')
-                  [array([[ 1.,  1.,  1., ...,  1.,  1.,  1.],
-                  ..., 
-                  [ 1.,  1.,  1., ...,  1.,  1.,  1.]]),
-                  array([[ 0.47006195,  0.5436392 ,  0.78962947, ...,  0.77567775,
-                  ..., 
-                  0.1218267 ,  0.48592789]])]
+                  [array([[ 1.,  1., ...,  1.,  1.]],
+                   array([[ 0.47006195,  0.5436392 , ...,  0.1218267 ,  0.48592789]])]
 
 
-* Memory footprint can be profiled using the excellent package `memory_profiler
+* Memory footprint can be profiled using the excellent `memory_profiler
   package <https://pypi.python.org/pypi/memory_profiler>`__ with this
   `gist <https://gist.github.com/aabadie/7cba3385406d1cec7d3dd4407ba3f164>`__:
 
@@ -91,21 +85,16 @@ If we try again the examples above, we can already see improvements:
 .. code-block:: python
 
                 >>> import numpy as np
-                >>> import joblib
-                >>> joblib.__version__
-                '0.10.0'
+                >>> import joblib # joblib version: 0.10.0
                 >>> obj = [np.ones((5000, 5000)), np.random.random((5000, 5000))]
                 
                 # only 1 file is generated:
                 >>> joblib.dump(obj, '/tmp/test.pkl', compress=True)
                 ['/tmp/test.pkl']
                 >>> joblib.load('/tmp/test.pkl')
-                [array([[ 1.,  1.,  1., ...,  1.,  1.,  1.],
-                ..., 
-                [ 1.,  1.,  1., ...,  1.,  1.,  1.]]),
-                array([[ 0.47006195,  0.5436392 ,  0.78962947, ...,  0.77567775,
-                ..., 
-                0.1218267 ,  0.48592789]])]
+                [array([[ 1.,  1., ...,  1.,  1.]],
+                 array([[ 0.47006195,  0.5436392 , ...,  0.1218267 ,  0.48592789]])]
+
 
           
 * Memory usage is now stable:
@@ -160,12 +149,8 @@ making compressed pickle load transparent:
 .. code-block:: python
                
                 >>> joblib.load('/tmp/test.compressed')
-                [array([[ 1.,  1.,  1., ...,  1.,  1.,  1.],
-                ..., 
-                [ 1.,  1.,  1., ...,  1.,  1.,  1.]]),
-                array([[ 0.47006195,  0.5436392 ,  0.78962947, ...,  0.77567775,
-                ..., 
-                0.1218267 ,  0.48592789]])]
+                [array([[ 1.,  1., ...,  1.,  1.]],
+                 array([[ 0.47006195,  0.5436392 , ...,  0.1218267 ,  0.48592789]])]
 
 
 To conclude on those new exciting features, let's say a few words on file
@@ -186,12 +171,8 @@ Here are some example of persisting data using the ``with`` statement:
                 ['/tmp/test.pkl']
                 >>> with open('/tmp/test.pkl', 'rb') as f:
                 >>>    print(joblib.load(f))
-                [array([[ 1.,  1.,  1., ...,  1.,  1.,  1.],
-                ..., 
-                [ 1.,  1.,  1., ...,  1.,  1.,  1.]]),
-                array([[ 0.47006195,  0.5436392 ,  0.78962947, ...,  0.77567775,
-                ..., 
-                0.1218267 ,  0.48592789]])]
+                [array([[ 1.,  1., ...,  1.,  1.]],
+                 array([[ 0.47006195,  0.5436392 , ...,  0.1218267 ,  0.48592789]])]
 
 
 This also works with compression file object available in the standard library,
@@ -322,7 +303,7 @@ noticed a performance drop of 15%).
    There's also a small speed difference with dict/list objects between new/old
    joblib when using compression.
    The old version pickles the data inside a ``io.BytesIO`` buffer and then
-   compress it in a row whereas the new version write <<on the fly>> compressed
+   compress it in a row whereas the new version write "on the fly" compressed
    chunk of pickled data to the file.
    Because of this internal buffer the old implementation is not memory safe as it
    indeed copy the data in memory before compressing. The small speed difference

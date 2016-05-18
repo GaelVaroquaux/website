@@ -23,13 +23,12 @@ mecanism relies on an advanded usage of `pickle
 Some `recent work <https://github.com/joblib/joblib/pull/260>`__ on joblib has been
 achieved to solve memory consumption when dealing with data persistence.
 
-Up to version 0.9.4, it was known that the process of dumping/loading
-persisted data **with compression** was a memory gap, mainly because of internal
+Up to version 0.9.4, the process of dumping/loading
+persisted data **with compression** was a memory hog, mainly because of internal
 copies of data, limitating the maximum size of usable data with joblib.
 
 Another drawback was that each numpy array (>10MB in memory) of an arbitrary
-container was dumped in separate ``.npy`` file, increasing the complexity of
-the cache management on the file system.
+container was dumped in separate ``.npy`` file, increasing the load on the file system [#]_.
 
 Let's put in evidence those problems with a bit of code:
 
@@ -37,25 +36,26 @@ Let's put in evidence those problems with a bit of code:
 
   .. code-block:: python
                  
-                  >>> import numpy as np
-                  >>> import joblib # joblib version: 0.9.4
-                  >>> obj = [np.ones((5000, 5000)), np.random.random((5000, 5000))]
-                  
-                  # 3 files are generated:
-                  >>> joblib.dump(obj, '/tmp/test.pkl', compress=True)
-                  ['/tmp/test.pkl', '/tmp/test.pkl_01.npy.z', '/tmp/test.pkl_02.npy.z']
-                  >>> joblib.load('/tmp/test.pkl')
-                  [array([[ 1.,  1., ...,  1.,  1.]],
-                   array([[ 0.47006195,  0.5436392 , ...,  0.1218267 ,  0.48592789]])]
+        >>> import numpy as np
+        >>> import joblib # joblib version: 0.9.4
+        >>> obj = [np.ones((5000, 5000)), np.random.random((5000, 5000))]
+        
+        # 3 files are generated:
+        >>> joblib.dump(obj, '/tmp/test.pkl', compress=True)
+        ['/tmp/test.pkl', '/tmp/test.pkl_01.npy.z', '/tmp/test.pkl_02.npy.z']
+        >>> joblib.load('/tmp/test.pkl')
+        [array([[ 1.,  1., ...,  1.,  1.]],
+         array([[ 0.47006195,  0.5436392 , ...,  0.1218267 ,  0.48592789]])]
 
 
-* Memory footprint can be profiled using the excellent `memory_profiler
+* Memory footprint can be profiled using the `memory_profiler
   package <https://pypi.python.org/pypi/memory_profiler>`__ with this
   `gist <https://gist.github.com/aabadie/7cba3385406d1cec7d3dd4407ba3f164>`__:
 
   .. image:: {filename}attachments/old_pickle_mem_profile.png
+    :class: large
 
-  We obviously see the instability of memory usage during the calls to ``dump``
+  We see the increased memory usage during the calls to ``dump``
   and ``load`` functions.
 
 
@@ -104,7 +104,7 @@ If we try again the examples above, we can already see improvements:
 
 We can also play a bit with the new available compression methods based on
 python standard library modules: **zlib, gzip, bz2, lzma and xz** (the last 2
-ones are available since version 3.3).
+are available for Python greater than 3.3).
 
 An important thing is that the generated compressed files uses a **standard
 compression file format**: for instance, regular command line tools (zip/unzip,
@@ -114,32 +114,28 @@ tools. When dumping data into cache, **the compressor is selected automatically
 when the file name has an explicit extension**:
 
 
+.. code-block:: python
+               
+      >>> joblib.dump(obj, '/tmp/test.pkl.z')   # zlib
+      ['/tmp/test.pkl.z']
+      >>> joblib.dump(obj, '/tmp/test.pkl.gz')  # gzip
+      ['/tmp/test.pkl.gz']
+      >>> joblib.dump(obj, '/tmp/test.pkl.bz2')  # bz2
+      ['/tmp/test.pkl.bz2']
+      >>> joblib.dump(obj, '/tmp/test.pkl.lzma')  # lzma
+      ['/tmp/test.pkl.lzma']
+      >>> joblib.dump(obj, '/tmp/test.pkl.xz')  # xz
+      ['/tmp/test.pkl.xz']
 
+
+One can tune the compression level, setting the compressor explicitly:
 
 .. code-block:: python
                
-                >>> joblib.dump(obj, '/tmp/test.pkl.z')   # zlib
-                ['/tmp/test.pkl.z']
-                >>> joblib.dump(obj, '/tmp/test.pkl.gz')  # gzip
-                ['/tmp/test.pkl.gz']
-                >>> joblib.dump(obj, '/tmp/test.pkl.bz2')  # bz2
-                ['/tmp/test.pkl.bz2']
-                >>> joblib.dump(obj, '/tmp/test.pkl.lzma')  # lzma
-                ['/tmp/test.pkl.lzma']
-                >>> joblib.dump(obj, '/tmp/test.pkl.xz')  # xz
-                ['/tmp/test.pkl.xz']
-
-
-Of course, one can play with the compression level, but then the compressor has
-to be set explicitly:
-
-
-.. code-block:: python
-               
-                >>> joblib.dump(obj, '/tmp/test.pkl.compressed', compress=('zlib', 6))
-                ['/tmp/test.pkl.compressed']
-                >>> joblib.dump(obj, '/tmp/test.compressed', compress=('lzma', 6))
-                ['/tmp/test.pkl.compressed']
+      >>> joblib.dump(obj, '/tmp/test.pkl.compressed', compress=('zlib', 6))
+      ['/tmp/test.pkl.compressed']
+      >>> joblib.dump(obj, '/tmp/test.compressed', compress=('lzma', 6))
+      ['/tmp/test.pkl.compressed']
 
                 
 Joblib uses the Magic number of the file to determine the right decompressor,
@@ -207,8 +203,8 @@ for you:
                 0.1218267 ,  0.48592789]])]
 
           
-Speed, memory consumption and discussion
-========================================
+Benchmarks: speed and memory consumption
+=========================================
 
 
 It's now time to have a look at performances. We now have a friendly API but
@@ -221,9 +217,7 @@ kind of data while trying to **be as efficient as possible with numpy arrays**.
 To illustrate the benefits and cost of the new persistence implementation, let's
 now compare a real life use cases
 (`LFW dataset from scikit-learn <http://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_lfw_people.html>`_)
-with different libraries.
-
-The compared libraries are:
+with different libraries:
 
 * Joblib, tested for raw and compressed (zlib) files, with 2 different versions,
   0.9.4 and master (dev),
@@ -238,20 +232,17 @@ The following results were generated with this
 
 
 .. image:: {filename}attachments/persistence_lfw_bench.png
+    :class: large
 
            
 The four first lines use non compressed persistence strategies, the last four
 use persistence with zlib/gzip strategies.
 
-First, we can put aside the disk space used as the results are as expected : non
-compressed files has the same size as the persisted data, compressed files are
-smaller.
-
-Regarding the speed, the results between joblib 0.9.4 and 0.10.0 are
+**Speed**: the results between joblib 0.9.4 and 0.10.0 are
 similar whereas **numpy and pickle are clearly slower than joblib** in both
 compressed and non compressed cases.
 
-Let's now have a look at the memory consumption. Without compression, old and
+**Memory consumption**: Without compression, old and
 new joblib versions are the same but with compression, the old joblib version is
 clearly worse than the new one.
 Again **pickle and moreover numpy are clearly worse than joblib in terms of
@@ -260,6 +251,9 @@ pickle if the object is not a pure numpy array (a list or a dict with arrays for
 example), so in this case it inherits the memory drawbacks from pickle. When
 persisting pure numpy arrays (not tested here), numpy uses its interal save/load
 functions which are quite efficient in terms of speed and memory consumption.
+
+**Disk used**: the results are as expected : non compressed files has
+the same size as the in-memory data, compressed files are smaller.
 
 
 Enhancement strategy
@@ -333,4 +327,9 @@ Thanks to `@lesteve <https://github.com/lesteve>`_,
 `@ogrisel <https://github.com/ogrisel>`_ and
 `@GaelVaroquaux <https://github.com/GaelVaroquaux>`_ for the valuable help,
 reviews and support.
+
+
+.. [#] The load created by multiple files on the filesystem is
+   particularly detrimental for network filesystems, as it triggers
+   multiple requests and isn't cache friendly.
 

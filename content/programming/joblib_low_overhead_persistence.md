@@ -36,16 +36,18 @@ Let's explain those problems with a bit of code:
 >>> import joblib
 >>> joblib.__version__
 '0.9.4'
->>> obj = [np.arange(1000000), np.random.random((10000, 10000))]
+>>> obj = [np.ones((5000, 5000)), np.random.random((5000, 5000))]
 
 # 3 files are generated:
 >>> joblib.dump(obj, '/tmp/test.pkl', compress=True)
-['/tmp/test.pkl', '/tmp/test.pkl_01.npy', '/tmp/test.pkl_02.npy']
+['/tmp/test.pkl', '/tmp/test.pkl_01.npy.z', '/tmp/test.pkl_02.npy.z']
 >>> joblib.load('/tmp/test.pkl')
-[array([     0,      1,      2, ..., 999997, 999998, 999999]),
- array([[ 0.69306351,  0.28983859,  0.64536034, ...,  0.64458594,
+[array([[ 1.,  1.,  1., ...,  1.,  1.,  1.],
         ..., 
-          0.79832186,  0.46389441]])]
+        [ 1.,  1.,  1., ...,  1.,  1.,  1.]]),
+ array([[ 0.47006195,  0.5436392 ,  0.78962947, ...,  0.77567775,
+        ..., 
+          0.1218267 ,  0.48592789]])]
 ```
 * Memory footprint can be profiled using the excellent package
 [memory_profiler package](https://pypi.python.org/pypi/memory_profiler) with the
@@ -82,16 +84,18 @@ If we try again the examples above, we can already see improvements:
 >>> import joblib
 >>> joblib.__version__
 '0.10.0'
->>> obj = [np.arange(1000000), np.random.random((10000, 10000))]
+>>> obj = [np.ones((5000, 5000)), np.random.random((5000, 5000))]
 
-# only 1 file is used:
+# only 1 file is generated:
 >>> joblib.dump(obj, '/tmp/test.pkl', compress=True)
 ['/tmp/test.pkl']
 >>> joblib.load('/tmp/test.pkl')
-[array([     0,      1,      2, ..., 999997, 999998, 999999]),
- array([[ 0.69306351,  0.28983859,  0.64536034, ...,  0.64458594,
+[array([[ 1.,  1.,  1., ...,  1.,  1.,  1.],
         ..., 
-          0.79832186,  0.46389441]])]
+        [ 1.,  1.,  1., ...,  1.,  1.,  1.]]),
+ array([[ 0.47006195,  0.5436392 ,  0.78962947, ...,  0.77567775,
+        ..., 
+          0.1218267 ,  0.48592789]])]
 ```
 * Memory usage is now stable:
 ![Memory profiler]({filename}attachments/new_pickle_mem_profile.png)
@@ -129,10 +133,12 @@ Joblib uses the Magic number of the file to determine the right decompressor,
 making compressed pickle load transparent:
 ```python
 >>> joblib.load('/tmp/test.compressed')
-[array([     0,      1,      2, ..., 999997, 999998, 999999]),
- array([[ 0.69306351,  0.28983859,  0.64536034, ...,  0.64458594,
+[array([[ 1.,  1.,  1., ...,  1.,  1.,  1.],
         ..., 
-          0.79832186,  0.46389441]])]
+        [ 1.,  1.,  1., ...,  1.,  1.,  1.]]),
+ array([[ 0.47006195,  0.5436392 ,  0.78962947, ...,  0.77567775,
+        ..., 
+          0.1218267 ,  0.48592789]])]
 ```
 
 To conclude on those new exciting features, let's say a few words on file
@@ -146,10 +152,13 @@ objects:
 ['/tmp/test.pkl']
 >>> with open('/tmp/test.pkl', 'rb') as f:
 >>>    print(joblib.load(f))
-[array([     0,      1,      2, ..., 999997, 999998, 999999]),
- array([[ 0.69306351,  0.28983859,  0.64536034, ...,  0.64458594,
+[array([[ 1.,  1.,  1., ...,  1.,  1.,  1.],
         ..., 
-          0.79832186,  0.46389441]])]
+        [ 1.,  1.,  1., ...,  1.,  1.,  1.]]),
+ array([[ 0.47006195,  0.5436392 ,  0.78962947, ...,  0.77567775,
+        ..., 
+          0.1218267 ,  0.48592789]])]
+
 ```
           
 This also works with compression file object available in the standard library,
@@ -169,10 +178,12 @@ for you:
 ```python
 >>> with open('/tmp/test.pkl.gz', 'rb') as f:
 >>>     print(joblib.load(f))
-[array([     0,      1,      2, ..., 999997, 999998, 999999]),
- array([[ 0.69306351,  0.28983859,  0.64536034, ...,  0.64458594,
+[array([[ 1.,  1.,  1., ...,  1.,  1.,  1.],
         ..., 
-          0.79832186,  0.46389441]])]
+        [ 1.,  1.,  1., ...,  1.,  1.,  1.]]),
+ array([[ 0.47006195,  0.5436392 ,  0.78962947, ...,  0.77567775,
+        ..., 
+          0.1218267 ,  0.48592789]])]
 ```
 
 ### Speed, memory consumption and discussion

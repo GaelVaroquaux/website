@@ -101,18 +101,16 @@ If we try again the examples above, we can already see improvements:
 
   .. image:: {filename}attachments/new_pickle_mem_profile.png
 
+Extra improvements in compressed persistence
+=============================================
 
-We can also play a bit with the new available compression methods based on
-python standard library modules: **zlib, gzip, bz2, lzma and xz** (the last 2
-are available for Python greater than 3.3).
+New compression formats
+------------------------
 
-An important thing is that the generated compressed files uses a **standard
-compression file format**: for instance, regular command line tools (zip/unzip,
-gzip/gunzip, bzip2, lzma, xv) can be used to compress/uncompress a pickled file
-generated with joblib. Joblib will be able to load cache compressed with those
-tools. When dumping data into cache, **the compressor is selected automatically
-when the file name has an explicit extension**:
-
+Joblib can use new compression methods based on python standard library modules:
+**zlib, gzip, bz2, lzma and xz** (the last 2 are available for Python
+greater than 3.3). When dumping data into cache, **the compressor is
+selected automatically when the file name has an explicit extension**:
 
 .. code-block:: python
                
@@ -126,7 +124,6 @@ when the file name has an explicit extension**:
       ['/tmp/test.pkl.lzma']
       >>> joblib.dump(obj, '/tmp/test.pkl.xz')  # xz
       ['/tmp/test.pkl.xz']
-
 
 One can tune the compression level, setting the compressor explicitly:
 
@@ -148,59 +145,65 @@ making compressed pickle load transparent:
                 [array([[ 1.,  1., ...,  1.,  1.]],
                  array([[ 0.47006195,  0.5436392 , ...,  0.1218267 ,  0.48592789]])]
 
+An important thing is that the generated compressed files uses a **standard
+compression file format**: for instance, regular command line tools (zip/unzip,
+gzip/gunzip, bzip2, lzma, xv) can be used to compress/uncompress a pickled file
+generated with joblib. Joblib will be able to load cache compressed with those
+tools. 
 
-To conclude on those new exciting features, let's say a few words on file
-handles with contextlib. Indeed, all numpy arrays are stored in a
-single file, itself using standard compression formats so, as a consequence,
-**joblib now takes advantage of python with statement** with file-like
-objects. Moreover this opens the door to **storing cache data in database blob
-or cloud storage such as Amazon S3, Amazon Glacier and Google Cloud Storage**
-(via the great python package `boto <https://github.com/boto/boto>`_).
+Compressed persistence into a file handle
+-----------------------------------------
 
-Here are some example of persisting data using the ``with`` statement:
-
+Now that all numpy arrays are stored in a
+single file, itself using standard compression formats, joblib can
+persist in an open file handle:
 
 .. code-block:: python
                
-                >>> with open('/tmp/test.pkl', 'wb') as f:
-                >>>    joblib.dump(obj, f)
-                ['/tmp/test.pkl']
-                >>> with open('/tmp/test.pkl', 'rb') as f:
-                >>>    print(joblib.load(f))
-                [array([[ 1.,  1., ...,  1.,  1.]],
-                 array([[ 0.47006195,  0.5436392 , ...,  0.1218267 ,  0.48592789]])]
-
+     >>> with open('/tmp/test.pkl', 'wb') as f:
+     >>>    joblib.dump(obj, f)
+     ['/tmp/test.pkl']
+     >>> with open('/tmp/test.pkl', 'rb') as f:
+     >>>    print(joblib.load(f))
+     [array([[ 1.,  1., ...,  1.,  1.]],
+      array([[ 0.47006195,  0.5436392 , ...,  0.1218267 ,  0.48592789]])]
 
 This also works with compression file object available in the standard library,
 like ``gzip.GzipFile``, ``bz2.Bz2File`` or ``lzma.LzmaFile``:
 
-
 .. code-block:: python
 
-                >>> import gzip
-                >>> with gzip.GzipFile('/tmp/test.pkl.gz', 'wb') as f:
-                >>>    joblib.dump(data, f)
-                ['/tmp/test.pkl.gz']
-                >>> with gzip.GzipFile('/tmp/test.pkl.gz', 'rb') as f:
-                >>>    print(joblib.load(f))
+     >>> import gzip
+     >>> with gzip.GzipFile('/tmp/test.pkl.gz', 'wb') as f:
+     >>>    joblib.dump(data, f)
+     ['/tmp/test.pkl.gz']
+     >>> with gzip.GzipFile('/tmp/test.pkl.gz', 'rb') as f:
+     >>>    print(joblib.load(f))
 
 
 Be sure that you use a decompressor matching the internal compression when
-loading with the above method, otherwise python will raise an error. Anyway, if
-you are unsure, simply use ``open``, joblib will **select the right decompressor**
+loading with the above method. If
+unsure, simply use ``open``, joblib will **select the right decompressor**
 for you:
 
 
 .. code-block:: python
 
-                >>> with open('/tmp/test.pkl.gz', 'rb') as f:
-                >>>     print(joblib.load(f))
-                [array([[ 1.,  1.,  1., ...,  1.,  1.,  1.],
-                ..., 
-                [ 1.,  1.,  1., ...,  1.,  1.,  1.]]),
-                array([[ 0.47006195,  0.5436392 ,  0.78962947, ...,  0.77567775,
-                ..., 
-                0.1218267 ,  0.48592789]])]
+     >>> with open('/tmp/test.pkl.gz', 'rb') as f:
+     >>>     print(joblib.load(f))
+     [array([[ 1.,  1.,  1., ...,  1.,  1.,  1.],
+     ..., 
+     [ 1.,  1.,  1., ...,  1.,  1.,  1.]]),
+     array([[ 0.47006195,  0.5436392 ,  0.78962947, ...,  0.77567775,
+     ..., 
+     0.1218267 ,  0.48592789]])]
+
+.. topic:: Towards dumping to elaborate stores
+
+    This opens the door to **storing cache data in database blob or cloud
+    storage such as Amazon S3, Amazon Glacier and Google Cloud Storage**
+    (for instance via the Python package `boto
+    <https://github.com/boto/boto>`_).
 
           
 Benchmarks: speed and memory consumption

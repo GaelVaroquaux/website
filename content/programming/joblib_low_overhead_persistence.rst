@@ -21,7 +21,7 @@ mecanism relies on an advanded usage of `pickle
 <https://docs.python.org/3/library/pickle.html>`__.
 
 `Recent improvements <https://github.com/joblib/joblib/pull/260>`__ to joblib 
-solve memory consumption when persisting data.
+reduce vastly the overhead when persisting data.
 
 Limitations of the old implementation
 --------------------------------------
@@ -92,6 +92,8 @@ What's new
 ❸ **Persistence can be done in a filehandle**
 
 ❹ **More compression formats are available**
+
+|
 
 .. topic:: Backward compatibility
 

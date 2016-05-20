@@ -355,7 +355,7 @@ scipy sparse matrices works well, as it builds on arrays).
 
 Pickling using file handles is a first step toward pickling in
 sockets, enabling broadcasting of data between computing units
-on a network. This will be priceless with `joblib's new distributed backends <https://github.com/joblib/joblib/pull/325>`.
+on a network. This will be priceless with `joblib's new distributed backends <https://github.com/joblib/joblib/pull/325>`_.
 
 Other improvements will come from better compressor, making everything
 faster.

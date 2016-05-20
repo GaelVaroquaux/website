@@ -16,7 +16,7 @@ Problem setting: persistence for big data
 `Joblib <https://pythonhosted.org/joblib/>`_ is a powerful Python package
 for management of computation: parallel computing, caching, and
 primitives for out-of-core computing. It is handy when working on so
-called **big data**, that can consumes more the available RAM (several GB
+called **big data**, that can consume more than the available RAM (several GB
 nowadays). In such situations, objects in the working space must be
 persisted to disk, for out-of-core computing, distribution of jobs, or
 caching.

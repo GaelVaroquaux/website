@@ -90,7 +90,7 @@ What's new: compression, low memory...
 .. code-block:: python
 
      >>> import numpy as np
-     >>> import joblib # joblib version: 0.10.0
+     >>> import joblib # joblib version: 0.10.0 (dev)
      >>> obj = [np.ones((5000, 5000)), np.random.random((5000, 5000))]
      
      # only 1 file is generated:
@@ -141,13 +141,13 @@ benchmarks is available on this `gist
 <https://gist.github.com/aabadie/2ba94d28d68f19f87eb8916a2238a97c>`_.
 
 
-⚫ **Speed**: the results between joblib 0.9.4 and 0.10.0 are
+⚫ **Speed**: the results between joblib 0.9.4 and 0.10.0 (dev) are
 similar whereas **numpy and pickle are clearly slower than joblib** in both
 compressed and non compressed cases.
 
 ⚫ **Memory consumption**: Without compression, old and
 new joblib versions are the same; with compression, the new joblib version is
-clearly better than the old one.
+much better than the old one.
 **Joblib clearly outperforms pickle and numpy in terms of
 memory consumption**. This can be explained by the fact that numpy relies on
 pickle if the object is not a pure numpy array (a list or a dict with arrays for
@@ -352,6 +352,11 @@ pickle and numpy. Unfortunately, our strategy has poor performance with
 big dictionaries or list compared to a ``cPickle``, hence try to use
 numpy arrays in your internal data structures (note that something like
 scipy sparse matrices works well, as it builds on arrays).
+
+For the future, maybe numpy's pickle methods could be improved and make a
+better use of `64-bit opcodes for large objects
+<https://www.python.org/dev/peps/pep-3154/#bit-opcodes-for-large-objects>`_
+that were introduced in Python recently.
 
 Pickling using file handles is a first step toward pickling in
 sockets, enabling broadcasting of data between computing units

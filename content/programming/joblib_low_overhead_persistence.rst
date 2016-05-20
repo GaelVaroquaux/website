@@ -7,7 +7,6 @@ Better Python compressed persistence in joblib
 :authors: Alexandre Abadie & Gaël Varoquaux
 :profile_image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/110px-Python-logo-notext.svg.png
 :summary: New persistence in joblib enables low-overhead storage of big data contained in arbitrary objects
-:status: draft
 
 
 Problem setting: persistence for big data
@@ -206,7 +205,7 @@ One can tune the compression level, setting the compressor explicitly:
       >>> joblib.dump(obj, '/tmp/test.compressed', compress=('lzma', 6))
       ['/tmp/test.pkl.compressed']
 
-On loading, joblib uses the Magic number of the file to determine the
+On loading, joblib uses the magic number of the file to determine the
 right decompression method. This makes loading compressed pickle transparent:
 
 .. code-block:: python

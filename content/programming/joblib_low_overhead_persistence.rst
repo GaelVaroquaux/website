@@ -100,7 +100,7 @@ What's new: compression, low memory...
      [array([[ 1.,  1., ...,  1.,  1.]],
       array([[ 0.47006195,  0.5436392 , ...,  0.1218267 ,  0.48592789]])]
 
-❸ **Persistence can be done in a file handle**
+❸ **Persistence in a file handle** (ongoing work in a `pull request <https://github.com/joblib/joblib/pull/351>`_)
 
 ❹ **More compression formats are available**
 
@@ -207,7 +207,7 @@ One can tune the compression level, setting the compressor explicitly:
       ['/tmp/test.pkl.compressed']
 
 On loading, joblib uses the Magic number of the file to determine the
-right decompression format. The makes loading compressed pickle transparent:
+right decompression method. This makes loading compressed pickle transparent:
 
 .. code-block:: python
                
@@ -217,7 +217,7 @@ right decompression format. The makes loading compressed pickle transparent:
 
 Importantly, the generated compressed files use a **standard
 compression file format**: for instance, regular command line tools (zip/unzip,
-gzip/gunzip, bzip2, lzma, xv) can be used to compress/uncompress a pickled file
+gzip/gunzip, bzip2, lzma, xz) can be used to compress/uncompress a pickled file
 generated with joblib. Joblib will be able to load cache compressed with those
 tools. 
 
@@ -241,7 +241,7 @@ Compressed persistence into a file handle
 
 Now that everything is stored in a
 single file using standard compression formats, joblib can
-persist in an open file handle:
+persist in an `open file handle <https://github.com/joblib/joblib/pull/351>`_:
 
 .. code-block:: python
                
@@ -302,16 +302,16 @@ proceeds as follows:
   Pickler replaces in pickle stream the ndarray with a wrapper object containing
   all important array metadata (shape, dtype, flags). Then it writes the array
   content in the pickle file. Note that this step breaks the pickle
-  compatibility. One benefit is that it enable using fast code for
-  copyless handling of the numpy array. For compression, we pass chuncks
-  of the data to a compressor object (using the buffer protocole to avoid
+  compatibility. One benefit is that it enables using fast code for
+  copyless handling of the numpy array. For compression, we pass chunks
+  of the data to a compressor object (using the buffer protocol to avoid
   copies).
 
 * **Unpickling from a file**: when pickle reaches the array wrapper, as the
   object is in the pickle stream, the file handle is at the
   beginning of the array content. So at this point the Unpickler simply
   constructs an array based on the metadata contained in the wrapper and then
-  fill the array buffer directly from the file. The object returned is the
+  fills the array buffer directly from the file. The object returned is the
   reconstructed array, the array wrapper being dropped. A benefit is that
   if the data is stored not compressed, **the array can be directly memory
   mapped from the storage** (the mmap_mode option of `joblib.load

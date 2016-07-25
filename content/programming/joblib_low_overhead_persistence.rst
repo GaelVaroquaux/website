@@ -3,7 +3,7 @@ Better Python compressed persistence in joblib
 
 :date: 2016-05-20
 :tags: joblib, persistence, big data
-:slug: New low-overhead persistence in joblib for big data
+:slug: new_low-overhead_persistence_in_joblib_for_big_data
 :authors: Alexandre Abadie & Gaël Varoquaux
 :profile_image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/110px-Python-logo-notext.svg.png
 :summary: New persistence in joblib enables low-overhead storage of big data contained in arbitrary objects

@@ -112,4 +112,22 @@ github: publish
 	ghp-import $(OUTPUTDIR)
 	git push origin gh-pages
 
+github-upload: publish
+	rm -rf build/gaelvaroquaux.github.io
+	-mkdir build
+	# first clone the gaelvaroquaux.github.io repo because it may ask
+	# for password and we don't want to delay this long build in
+	# the middle of it
+	# --no-checkout just fetches the root folder without content
+	# --depth 1 is a speed optimization since we don't need the
+	# history prior to the last commit
+	git clone --no-checkout --depth 1 git@github.com:GaelVaroquaux/gaelvaroquaux.github.io.git build/gaelvaroquaux.github.io
+	touch build/gaelvaroquaux.github.io/.nojekyll
+	cp -r output/* build/gaelvaroquaux.github.io && \
+	cd build/gaelvaroquaux.github.io && \
+	git add * && \
+	git add .nojekyll && \
+	git commit -a -m 'Make install' && \
+	git push
+
 .PHONY: html help clean regenerate serve devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload cf_upload github

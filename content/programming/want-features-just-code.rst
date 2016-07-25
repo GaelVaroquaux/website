@@ -39,7 +39,7 @@ that develop and maintain their toys is. Borrowing the figure below from
 of the grunt work to get the core scientific Python ecosystem going is
 around two handfuls:
 
-.. image:: http://gael-varoquaux.info/blog/wp-content/uploads/2012/fperez_euroscipy_2011_contributors.jpg
+.. image:: attachments/fperez_euroscipy_2011_contributors.jpg
    :width: 70%
 
 I'd like to think that this recruitment problem is a lack of skill set:
@@ -63,7 +63,7 @@ I hope that I haven't overreacted too badly :), that email turned me on.
 That said, I am not sure that people realize how much they owe to the
 open source developers breaking their backs on the packages they use.
 
-.. image:: http://gael-varoquaux.info/blog/wp-content/uploads/2012/fperez_euroscipy_2011_i_want_you.jpg
+.. image:: attachments/fperez_euroscipy_2011_i_want_you.jpg
    :width: 50%
 
 All credit for images goes to `Fernando Perez`_

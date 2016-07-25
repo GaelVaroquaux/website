@@ -12,14 +12,14 @@ change the properties of the objects on the visualization, or add some
 more, you need to click on a button on the toolbar, which displays a
 dialog, from which you can open more dialogs to edit the objects:
 
-.. image:: http://gael-varoquaux.info/blog/wp-content/uploads/2009/02/mayavi_old_ui.png
-   :target: http://gael-varoquaux.info/blog/wp-content/uploads/2009/02/mayavi_old_ui.png
+.. image:: attachments/mayavi_old_ui.png
+   :target: attachments/mayavi_old_ui.png
    :align: center
 
 I am thinking to changing this to a single dialog:
 
-.. image:: http://gael-varoquaux.info/blog/wp-content/uploads/2009/02/mayavi_new_ui.png
-   :target: http://gael-varoquaux.info/blog/wp-content/uploads/2009/02/mayavi_new_ui.png
+.. image:: attachments/mayavi_new_ui.png
+   :target: attachments/mayavi_new_ui.png
    :align: center
 
 The single-object-editing dialogs could still be opened by

@@ -129,7 +129,7 @@ this to make it a good tool.
 .. _Enthought Tool Suite: http://code.enthought.com/ets/
 .. _setuptools: http://peak.telecommunity.com/DevCenter/setuptools
 
-.. |image0| image:: http://gael-varoquaux.info/blog/wp-content/uploads/2008/04/ets_deps1.png
-   :target: http://gael-varoquaux.info/blog/wp-content/uploads/2008/04/ets_deps1.png
-.. |image1| image:: http://gael-varoquaux.info/blog/wp-content/uploads/2008/04/ets3_deps.png
-   :target: http://gael-varoquaux.info/blog/wp-content/uploads/2008/04/ets3_deps.png
+.. |image0| image:: attachments/ets_deps1.png
+   :target: attachments/ets_deps1.png
+.. |image1| image:: attachments/ets3_deps.png
+   :target: attachments/ets3_deps.png

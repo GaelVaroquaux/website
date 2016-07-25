@@ -50,8 +50,8 @@ Help us spread the word
 
 The poster of the conference can be downloaded:
 
-.. image:: http://gael-varoquaux.info/blog/wp-content/uploads/2010/poster_euroscipy_2010.jpg
-   :target: http://gael-varoquaux.info/blog/wp-content/uploads/2010/poster_euroscipy_2010.pdf
+.. image:: attachments/poster_euroscipy_2010.jpg
+   :target: attachments/poster_euroscipy_2010.pdf
 
 Help us spread the word: print it and post it at your workplace!
 
@@ -66,7 +66,7 @@ accent in English. In the evenings, walk one block to enjoy the night
 life "rue Mouffetard", or venture further to stroll on the river banks
 of the Seine, along which people dance to street music.
 
-.. image:: http://gael-varoquaux.info/blog/wp-content/uploads/2010/banner_euroscipy.jpg
+.. image:: attachments/banner_euroscipy.jpg
 
 .. _Ecole Normale Supérieure: http://www.ens.fr/?lang=en
 .. _an exciting program: http://www.euroscipy.org/conference/867?vid=primary

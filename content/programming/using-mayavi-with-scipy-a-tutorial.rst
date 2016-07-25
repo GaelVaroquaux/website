@@ -84,8 +84,8 @@ We can now click on the Colors and legends on the pipeline and change
 the colors used, by selecting a different LUT (Look Up Table). Let us
 select ‘Paired’ as it separates well levels.
 
-.. image:: http://gael-varoquaux.info/blog/wp-content/uploads/2008/11/potential_ipython.jpg
-   :target: http://gael-varoquaux.info/blog/wp-content/uploads/2008/11/potential_ipython.jpg
+.. image:: attachments/potential_ipython.jpg
+   :target: attachments/potential_ipython.jpg
 
 To get a better view of the potential, we would like to display more
 contours, but the problem with this approach is that closed contours
@@ -103,8 +103,8 @@ colorbar. We can do this by typing:
 
 Or using the options in the LUT dialog visited earlier.
 
-.. image:: http://gael-varoquaux.info/blog/wp-content/uploads/2008/11/potential.jpg
-   :target: http://gael-varoquaux.info/blog/wp-content/uploads/2008/11/potential.jpg
+.. image:: attachments/potential.jpg
+   :target: attachments/potential.jpg
 
 We want to study the motion of a particle in this potential. For this we
 need to derive the corresponding force, given by the gradient of the
@@ -133,8 +133,8 @@ on our grid:
     mlab.quiver3d(X[50, ::3, ::3], Y[50, ::3, ::3], Z[50, ::3, ::3],
                          Vx, Vy, Vz, scale_factor=-0.2, color=(1, 1, 1))
 
-.. image:: http://gael-varoquaux.info/blog/wp-content/uploads/2008/11/gradient.jpg
-   :target: http://gael-varoquaux.info/blog/wp-content/uploads/2008/11/gradient.jpg
+.. image:: attachments/gradient.jpg
+   :target: attachments/gradient.jpg
 
 Now we can use scipy to integrate the trajectories. We first have to
 define a dynamical flow, the function that returns the derivative of the
@@ -181,8 +181,8 @@ colormap:
     mlab.colorbar(trajectory, title='Time', orientation='vertical')
 
 
-.. image:: http://gael-varoquaux.info/blog/wp-content/uploads/2008/11/trajectories.jpg
-   :target: http://gael-varoquaux.info/blog/wp-content/uploads/2008/11/trajectories.jpg
+.. image:: attachments/trajectories.jpg
+   :target: attachments/trajectories.jpg 
 
 If I have time, I'll show later how some of the operations we have done
 with numpy can be done with VTK and Mayavi. This will give us control of

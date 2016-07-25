@@ -16,8 +16,8 @@ Actually it was the Enthought guys who really made my fantastic summer
 possible by paying me a good salary and thus indirectly funding my
 travels. Thanks Enthought, you guys rock.
 
-.. image:: http://gael-varoquaux.info/blog/wp-content/uploads/2008/10/enthought-longhorn1.png
-   :target: http://gael-varoquaux.info/blog/wp-content/uploads/2008/10/enthought-longhorn1.png
+.. image:: attachments/enthought-longhorn1.png
+   :target: attachments/enthought-longhorn1.png
 
 Austin is a nice city. It's got a very nice night life (thought the
 tequilla doesn't match Jarrod's expectations, and they don't always
@@ -38,8 +38,8 @@ you don't speak Texan, this means "out in the bush", ie in a remote
 location). It might even have been a trap: he lives in a `dry county`_.
 Moreover, I woke up one morning to find this in my living room:
 
-.. image:: http://gael-varoquaux.info/blog/wp-content/uploads/2008/10/scorpion-300x240.jpg
-   :target: http://gael-varoquaux.info/blog/wp-content/uploads/2008/10/scorpion.jpg
+.. image:: attachments/scorpion-300x240.jpg
+   :target: attachments/scorpion-300x240.jpg
 
 It's not deadly, I have been told, it just hurts a lot. On top of that,
 the kids brought back a dead black widow one day. Now it may seem to
@@ -55,8 +55,8 @@ another post (I actually started a screen cast about this, but the state
 of video-editing software under Linux is abymissimal, and I could never
 edit the sound track).
 
-.. image:: http://gael-varoquaux.info/blog/wp-content/uploads/2008/10/p1010588-300x187.jpg
-   :target: http://gael-varoquaux.info/blog/wp-content/uploads/2008/10/p1010588.jpg
+.. image:: attachments/p1010588-300x187.jpg
+   :target: attachments/p1010588-300x187.jpg
 
 Visits to California
 ====================
@@ -130,14 +130,14 @@ help each-others on the mailing lists. We need packaging. All this is
 paramount and takes a lot of time... And we need coding.
 
 
-.. image:: http://gael-varoquaux.info/blog/wp-content/uploads/2008/10/s_p10105761-225x300.jpg
-   :target: http://gael-varoquaux.info/blog/wp-content/uploads/2008/10/s_p10105761.jpg
+.. image:: attachments/s_p10105761-225x300.jpg
+   :target: attachments/s_p10105761-225x300.jpg
 
-.. image:: http://gael-varoquaux.info/blog/wp-content/uploads/2008/10/s_p10105732-225x300.jpg
-   :target: http://gael-varoquaux.info/blog/wp-content/uploads/2008/10/s_p10105732.jpg
+.. image:: attachments/s_p10105732-225x300.jpg
+   :target: attachments/s_p10105732-225x300.jpg
 
-.. image:: http://gael-varoquaux.info/blog/wp-content/uploads/2008/10/s_p10105831-225x300.jpg
-   :target: http://gael-varoquaux.info/blog/wp-content/uploads/2008/10/s_p10105831.jpg
+.. image:: attachments/s_p10105831.jpg
+   :target: attachments/s_p10105831.jpg
 
 .. _Enthought: http://www.enthought.com
 .. _dry county: http://en.wikipedia.org/wiki/Dry_counties

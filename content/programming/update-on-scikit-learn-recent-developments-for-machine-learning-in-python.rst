@@ -139,7 +139,7 @@ bar. I am sure it helps reviewing code!
 Was it worth the money?
 -----------------------
 
-.. image:: http://gael-varoquaux.info/blog/wp-content/uploads/2012/skl_activity.png
+.. image:: attachments/skl_activity.png
    :width: 90%
 
 

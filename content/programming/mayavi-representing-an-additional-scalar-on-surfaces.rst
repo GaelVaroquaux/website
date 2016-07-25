@@ -50,7 +50,7 @@ surface, but also an additional scalar value at these position:
     mlab.view(-177, 82, 32)
     mlab.show()
 
-.. image:: http://gael-varoquaux.info/blog/wp-content/uploads/2010/mesh_example.png
+.. image:: attachments/mesh_example.png
 
 As you can see, this solution is really simple, and solves the problem.
 
@@ -65,7 +65,7 @@ would like to be able to add an addition scalar value 'w' and turn it
 into color, just like 'z' is turned into elevation. The pipeline that is
 created by the surf function is the following:
 
-.. image:: http://gael-varoquaux.info/blog/wp-content/uploads/2010/surf_pipeline.png
+.. image:: attachments/surf_pipeline.png
 
 The first element of the pipeline after the scene is the data source
 created for us by the surf function: it is a 2D array that contains the
@@ -132,7 +132,7 @@ color:
 
 The pipeline that is created is the following:
 
-.. image:: http://gael-varoquaux.info/blog/wp-content/uploads/2010/complex_pipeline.png
+.. image:: attachments/complex_pipeline.png
 
 In the first part of the pipeline, the 'WarpScalar' filter is applied to
 the 'z' scalar value, whereas, due to the 'SetActiveAttribute' filter,

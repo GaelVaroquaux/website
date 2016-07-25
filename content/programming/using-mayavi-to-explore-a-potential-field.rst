@@ -62,8 +62,8 @@ vector field is still too dense, therefore we go to the Masking tab to
 enable masking, mask with an on ratio of 6 (one arrow out of 6 is
 masked) and turn off the random mode.
 
-.. image:: http://gael-varoquaux.info/blog/wp-content/uploads/2008/11/vector_cut_plane2.jpg
-   :target: http://gael-varoquaux.info/blog/wp-content/uploads/2008/11/vector_cut_plane2.jpg
+.. image:: attachments/vector_cut_plane2.jpg
+   :target: attachments/vector_cut_plane2.jpg
 
 To have nice colors, we also changed the color map of the vector field
 by going to the Colors and legend node just above the VectorCutPlane,
@@ -86,8 +86,8 @@ local potential minimum, and moving the seed point along lets us see in
 which minimum each point will fall into, in other world the basin of
 attraction of each local minimum.
 
-.. image:: http://gael-varoquaux.info/blog/wp-content/uploads/2008/11/streamline.jpg
-   :target: http://gael-varoquaux.info/blog/wp-content/uploads/2008/11/streamline.jpg
+.. image:: attachments/streamline.jpg
+   :target: attachments/streamline.jpg
 
 .. _*Creating data for Mayavi*: http://code.enthought.com/projects/mayavi/docs/development/html/mayavi/data.html
 

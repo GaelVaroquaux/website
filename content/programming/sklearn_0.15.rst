@@ -13,7 +13,7 @@ A long development stretch
 ==========================
 
 It's been a while since the `last release of
-scikit-learn <http://gael-varoquaux.info/blog/?p=169>`__. So a lot has
+scikit-learn <http://gael-varoquaux.info/programming/scikit-learn-014-release-features-and-benchmarks.html>`__. So a lot has
 happened. Exactly 2611 commits according my count. Quite clearly, we
 have more and more existing code, more and more features to support.
 This means that when we modify an algorithm, for instance to make it

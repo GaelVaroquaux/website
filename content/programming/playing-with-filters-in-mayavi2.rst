@@ -57,8 +57,8 @@ interested in having a scalar reflecting altitude, in order to associate
 a pleasing color with it, I rebuild this scalar using the
 ElevationFilter filter.
 
-.. image:: http://gael-varoquaux.info/blog/wp-content/uploads/2008/02/france.png
-   :target: http://gael-varoquaux.info/blog/wp-content/uploads/2008/02/france.png
+.. image:: attachments/france.png
+   :target: attachments/france.png
 
 I find the result very pleasing: the mesh simplification is very
 impressive, because it yields a good rendering of the landscape with

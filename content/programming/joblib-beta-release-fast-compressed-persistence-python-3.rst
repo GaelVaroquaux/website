@@ -72,19 +72,19 @@ I would like to stress that I am comparing a general purpose persistence
 engine (joblib) to specific I/O libraries either optimized for the data
 (Nifti), or requiring some massaging to enable persistence (pytables).
 
-.. image:: http://gael-varoquaux.info/blog/wp-content/uploads/2012/joblib_rel_0.6_speed/disk.png
+.. image:: attachments/joblib_rel_0.6_speed/disk.png
    :width: 66%
    :align: center
 
 |
 
-.. image:: http://gael-varoquaux.info/blog/wp-content/uploads/2012/joblib_rel_0.6_speed/write.png
+.. image:: attachments/joblib_rel_0.6_speed/write.png
    :width: 66%
    :align: center
 
 |
 
-.. image:: http://gael-varoquaux.info/blog/wp-content/uploads/2012/joblib_rel_0.6_speed/read.png
+.. image::  attachments/joblib_rel_0.6_speed/read.png
    :width: 66%
    :align: center
 
@@ -135,25 +135,25 @@ described `here <http://scikit-learn.org/stable/datasets/index.html>`__:
 -  **Species** - Occurence of species measured in latin America, with a
    lot of missing data.
 
-.. image:: http://gael-varoquaux.info/blog/wp-content/uploads/2012/joblib_rel_0.6_speed/joblib_disk.png
+.. image:: attachments/joblib_rel_0.6_speed/joblib_disk.png
    :width: 50%
    :align: center
 
 |
 
-.. image:: http://gael-varoquaux.info/blog/wp-content/uploads/2012/joblib_rel_0.6_speed/joblib_write.png
+.. image:: attachments/joblib_rel_0.6_speed/joblib_write.png
    :width: 50%
    :align: center
 
 |
 
-.. image:: http://gael-varoquaux.info/blog/wp-content/uploads/2012/joblib_rel_0.6_speed/joblib_read.png
+.. image:: attachments/joblib_rel_0.6_speed/joblib_read.png
    :width: 50%
    :align: center
 
 
 Actual numbers can be found
-`here <http://gael-varoquaux.info/blog/wp-content/uploads/2012/joblib_rel_0.6_speed/joblib_results.csv>`__.
+`here <attachments/joblib_rel_0.6_speed/joblib_results.csv>`__.
 
 **What this tells us** - The main message from these benchmarks is that
 datasets with redundant information, i.e. that compress well, give fast
@@ -217,7 +217,7 @@ mailing-list may be of interest to the reader.
 .. _out of core computation: http://en.wikipedia.org/wiki/Out-of-core_algorithm
 .. _Pytables: http://pytables.github.com/index.html
 .. _Nibabel: http://nipy.sourceforge.net/nibabel/
-.. _here: http://gael-varoquaux.info/blog/wp-content/uploads/2012/joblib_rel_0.6_speed/results_nii.csv
+.. _here: attachments/joblib_rel_0.6_speed/results_nii.csv
 .. _scikit-learn: http://scikit-learn.org
 .. _joblib's code and comments: https://github.com/joblib/joblib/blob/0.5.X/joblib/numpy_pickle.py
 .. _a gist: https://gist.github.com/1551250

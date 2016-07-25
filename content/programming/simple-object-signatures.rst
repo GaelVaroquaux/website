@@ -141,4 +141,4 @@ don't have to solve is probably a good idea.
 .. _Enthought's Traits library: http://code.enthought.com/projects/traits
 .. _scikit-learn: http://scikit-learn.sourceforge.net/
 .. _discussing: http://sourceforge.net/mailarchive/forum.php?thread_name=201007050958.16199.matthieu.perrot%40cea.fr&forum_name=scikit-learn-general
-.. _here: http://gael-varoquaux.info/blog/wp-content/uploads/2010/base_estimator_py
+.. _here: attachments/base_estimator.py

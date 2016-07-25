@@ -2,7 +2,7 @@ Writing parallel code in a readable way
 #######################################
 
 :date: 2009-11-09 00:10
-:tags: python, scientific computing, scipy, software engineering
+:tags: python, scientific computing, scipy, software engineering, joblib
 
 Although I often have embarrasingly parallel problems (data parallel),
 and I have an 8-CPU box at work, I used to frown on writing parallel
@@ -68,4 +68,4 @@ There are several tricks here:
 .. _parallel Python: http://www.parallelpython.com/
 .. _a pretty convincing case: http://www.archive.org/details/scipy09_day1_03-Peter_Norvig
 .. _SciPy2009: http://conference.scipy.org/
-.. _here: http://gael-varoquaux.info/blog/wp-content/uploads/2009/11/parallel_py
+.. _here: attachments/parallel.py

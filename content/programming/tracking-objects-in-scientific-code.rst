@@ -2,7 +2,7 @@ Tracking objects in scientific code
 ####################################
 
 :date: 2008-12-23 01:26
-:tags: python, scientific computing, software engineering, software architecture, selected
+:tags: python, scientific computing, software engineering, software architecture, selected, joblib
 
 When I started working in my new field (data analysis of functional
 brain images), I was surprised to find in our data-analysis scripts what

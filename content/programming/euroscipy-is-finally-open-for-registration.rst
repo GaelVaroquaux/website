@@ -4,8 +4,8 @@ EuroScipy is finally open for registration
 :date: 2010-05-13 13:23
 :tags: python, scientific computing
 
-.. image:: http://gael-varoquaux.info/blog/wp-content/uploads/2010/poster_euroscipy_2010.jpg
-   :target: http://gael-varoquaux.info/blog/wp-content/uploads/2010/poster_euroscipy_2010.pdf
+.. image:: attachments/poster_euroscipy_2010.jpg
+   :target: attachments/poster_euroscipy_2010.pdf
 
 The registration for `EuroScipy`_ is finally open.
 ==================================================

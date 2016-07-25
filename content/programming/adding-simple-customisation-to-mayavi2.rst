@@ -85,11 +85,11 @@ seen as a pro, or as a con, depending on what you want to do:
 |mayavi2-noui.png|
 
 .. _Envisage: http://code.enthought.com/envisage
-.. _previous post: http://gael-varoquaux.info/blog/?p=3
+.. _previous post: http://gael-varoquaux.info/programming/mayavi2-using-from-ipython.html
 .. _traitsUI: http://code.enthought.com/traits
 .. _my website: http://www.gael-varoquaux.info/computers/traits_tutorial
 
-.. |mayayi2-customui.png| image:: http://gael-varoquaux.info/blog/wp-content/uploads/2008/02/mayayi2-customui.png
-   :target: http://gael-varoquaux.info/blog/wp-content/uploads/2008/02/mayayi2-customui.png
-.. |mayavi2-noui.png| image:: http://gael-varoquaux.info/blog/wp-content/uploads/2008/02/mayavi2-noui.png
-   :target: http://gael-varoquaux.info/blog/wp-content/uploads/2008/02/mayavi2-noui.png
+.. |mayayi2-customui.png| image:: attachments/mayayi2-customui.png
+   :target: attachments/mayayi2-customui.png
+.. |mayavi2-noui.png| image:: attachments/mayayi2-noui.png
+   :target: attachments/mayayi2-noui.png

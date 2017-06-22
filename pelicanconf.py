@@ -75,11 +75,12 @@ THEME = "pure"
 # - The link itself
 SOCIAL = (
     ('Google scholar', 'graduation-cap',
-     'http://scholar.google.fr/citations?user=OGGu384AAAAJ'),
-    ('twitter', 'twitter-square', 'https://twitter.com/GaelVaroquaux'),
-    ('GitHub', 'github', GITHUB_URL),
-    ('Artwork', 'camera-retro', 'http://gaelvaroquaux.tumblr.com'),
-    #('flickr', 'flickr', 'https://www.flickr.com/photos/GaelVaroquaux'),
+     'http://scholar.google.fr/citations?user=OGGu384AAAAJ', ''),
+    ('twitter', 'twitter-square', 'https://twitter.com/GaelVaroquaux', ''),
+    ('GitHub', 'github', GITHUB_URL, ''),
+    ("Artwork", 'camera-retro',
+     'http://www.flickriver.com/photos/gaelvaroquaux/popular-interesting/',
+"""<div class="extra"><div id="flickrstream"></div></div>"""),
 )
 # Linkedin, slideshare
 

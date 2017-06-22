@@ -32,7 +32,7 @@ endif
 
 all: html
 
-install: rsync_upload
+install: github-upload
 
 help:
 	@echo 'Makefile for a pelican Web site                                        '
@@ -113,16 +113,18 @@ github: publish
 	git push origin gh-pages
 
 github-upload: publish
-	rm -rf build/gaelvaroquaux.github.io
-	-mkdir build
+	#rm -rf build/gaelvaroquaux.github.io
+	#-mkdir build
 	# first clone the gaelvaroquaux.github.io repo because it may ask
 	# for password and we don't want to delay this long build in
 	# the middle of it
 	# --no-checkout just fetches the root folder without content
 	# --depth 1 is a speed optimization since we don't need the
 	# history prior to the last commit
-	git clone --no-checkout --depth 1 git@github.com:GaelVaroquaux/gaelvaroquaux.github.io.git build/gaelvaroquaux.github.io
+	#git clone --no-checkout --depth 1 git@github.com:GaelVaroquaux/gaelvaroquaux.github.io.git build/gaelvaroquaux.github.io
 	touch build/gaelvaroquaux.github.io/.nojekyll
+	cd build/gaelvaroquaux.github.io && \
+	git pull && git clean -d -f
 	cp -r output/* build/gaelvaroquaux.github.io && \
 	cd build/gaelvaroquaux.github.io && \
 	git add * && \

@@ -15,8 +15,8 @@ toolkit in Python, we cleaned up the ICA code that I had been using, and
 we added it to the scikit, along with `an example`_ inspired from this
 earlier toy problem.
 
-.. image:: http://scikit-learn.org/stable/_images/plot_ica_vs_pca.png
-   :target: http://scikit-learn.org/stable/auto_examples/plot_ica_vs_pca.html
+.. image:: http://scikit-learn.org/stable/_images/sphx_glr_plot_ica_vs_pca_001.png
+   :target: http://scikit-learn.org/stable/auto_examples/decomposition/plot_ica_vs_pca.html
    :align: center
 
 While the pictures are not as pretty as the initial ones I had done
@@ -42,8 +42,8 @@ teacher, spent endless nights when I was a teenager working on
 figures.
 
 .. _some visualizations explaining the difference: http://gael-varoquaux.info/scientific_computing/ica_pca/index.html
-.. _scikit-learn: http://scikit-learn.sourceforge.net/
-.. _an example: http://scikit-learn.sourceforge.net/auto_examples/plot_ica_vs_pca.html
+.. _scikit-learn: http://scikit-learn.org
+.. _an example: http://scikit-learn.org/stable/auto_examples/decomposition/plot_ica_vs_pca.html
 .. _Geoplan: http://fr.wikipedia.org/wiki/G%C3%A9oplan
 
 

@@ -3,7 +3,7 @@
 Sprint on scikit-learn, in Paris and Austin
 ==============================================
 
-:date: 2018-07-28
+:date: 2018-08-01
 :tags: scikit-learn, open-source, reproducible research, scientific software
 :status: draft
 

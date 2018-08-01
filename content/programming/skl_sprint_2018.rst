@@ -10,6 +10,14 @@ Sprint on scikit-learn, in Paris and Austin
 Two weeks ago, we held a scikit-learn sprint in Austin and Paris. Here is
 a brief report, on progresses and challenges.
 
+.. topic:: Several sprints
+
+    We actually held two sprint in Austin: one open sprint, at the scipy
+    conference sprints, which was open to new contributors, and one core
+    sprint, for more advanced contributors. Thank you to all who joined
+    the scipy conference sprint. As I wasn't there, I cannot report on
+    it.
+
 Many achievements
 ==================
 

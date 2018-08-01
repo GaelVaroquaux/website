@@ -147,8 +147,9 @@ why.
     Python 3 has been out for 10 years. It is solid and comes with many
     improvements over Python 2. Alongside with `many other projects
     <http://python3statement.org>`_, we will be requiring Python 3 for
-    the future releases of scikit-learn. It will enable us to develop
-    faster a better toolkit.
+    the future releases of scikit-learn (0.21 and later). scikit-learn
+    0.20 will be the last release to support Python 2. It will enable
+    us to develop faster a better toolkit.
 
 |
 

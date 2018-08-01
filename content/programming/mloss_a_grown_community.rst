@@ -194,6 +194,6 @@ very hopeful for the future.
 
   * `Software for reproducible science: let's not have a misunderstanding <software-for-reproducible-science-lets-not-have-a-misunderstanding.html>`_
 
-  * `Publishing scientific software matters <../science/publishing_scientific_software_matters.html>`_
+  * `Publishing scientific software matters <../science/publishing-scientific-software-matters.html>`_
 
 

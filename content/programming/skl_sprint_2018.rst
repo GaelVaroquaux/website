@@ -145,8 +145,8 @@ Contributors to the sprint
 
 .. sidebar:: Women contributors
 
-   Only one woman in this long list of contributors is something that we
-   deeply regret. We would love to welcome more contributors from
+   We deeply regret having only one woman in this long list of
+   contributors. We would love to welcome more contributors from
    under-represented groups.
 
 **In Paris**

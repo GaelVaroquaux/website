@@ -31,7 +31,7 @@ Too many things were done to be listed here. Here is brief overview:
   <https://github.com/scikit-learn/scikit-learn/pull/1984>`_ was opened
   in 2013, and got many many improvements over the years.
 
-* **Yeo-Johnson** `The Yeo-Johnson transform
+* **Yeo-Johnson**: `The Yeo-Johnson transform
   <http://scikit-learn.org/dev/modules/preprocessing.html#mapping-to-a-gaussian-distribution>`_
   is a simple parametric transformation of the data that can be used to
   make it more Gaussian. It is similar to the Box-Cox transform but can
@@ -204,6 +204,8 @@ Sponsors
 
 - `France Is AI <https://franceisai.com/>`_ payed the travel of the French
   contributors to Austin
+- The NSF and the Sloan foundation payed the travel of the people from
+  Columbia.
 - `Enthought <https://www.enthought.com/>`_ hosted us in Austin
 - `Dataiku <https://www.dataiku.com/>`_ hosted us in Paris
 - `TravisCI <https://travis-ci.org/>`_ raised our number of workers for

@@ -215,7 +215,7 @@ Sponsors
   contributors to Austin
 - The NSF and the Sloan foundation payed the travel of the people from
   Columbia.
-- `SciPy 2018 <https://scipy2018.scipy.org>` organizers (and sponsors) hosted the first part of the sprint in Austin,
+- `SciPy 2018 <https://scipy2018.scipy.org>`_ organizers (and sponsors) hosted the first part of the sprint in Austin,
 - `Enthought <https://www.enthought.com/>`_ hosted the second part of the sprint in Austin,
 - `Dataiku <https://www.dataiku.com/>`_ hosted us in Paris
 - `TravisCI <https://travis-ci.org/>`_ raised our number of workers for

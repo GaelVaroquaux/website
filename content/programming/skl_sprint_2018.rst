@@ -31,6 +31,13 @@ Too many things were done to be listed here. Here is brief overview:
   <https://github.com/scikit-learn/scikit-learn/pull/1984>`_ was opened
   in 2013, and got many many improvements over the years.
 
+* **Yeo-Johnson** `The Yeo-Johnson transform
+  <http://scikit-learn.org/dev/modules/preprocessing.html#mapping-to-a-gaussian-distribution>`_
+  is a simple parametric transformation of the data that can be used to
+  make it more Gaussian. It is similar to the Box-Cox transform but can
+  deal with negative data
+  (`PR <https://github.com/scikit-learn/scikit-learn/pull/11520>`_).
+
 * **Novelty versus outlier detection**: Novelty detection attempts to
   find on new data observations that differ from train data. Outlier
   detection considers that even in the train data there are aberrant
@@ -39,13 +46,13 @@ Too many things were done to be listed here. Here is brief overview:
   <https://github.com/scikit-learn/scikit-learn/issues/8693>`_ and `this
   PR <https://github.com/scikit-learn/scikit-learn/pull/10700>`__).
 
-* **Changing to 5-fold**: we changed to default of cross-validation from
-  3-fold to 5-fold
-  (`PR <https://github.com/scikit-learn/scikit-learn/pull/11557>`__).
-
 * **Missing-value indicator**: a new transform that adds indicator columns
   marking missing data
   (`PR <https://github.com/scikit-learn/scikit-learn/pull/8075>`__).
+
+* **Changing to 5-fold**: we changed to default of cross-validation from
+  3-fold to 5-fold
+  (`PR <https://github.com/scikit-learn/scikit-learn/pull/11557>`__).
 
 * **Toward release 0.20**: most of the effort of the sprint was actually
   spent on addressing issues for the 0.20 release: a long list of quality
@@ -62,7 +69,7 @@ Scikit-learn is hard work
 
    Even for the almighty @amueller
 
-Two days of intense group work on scikit-learn reminded how much it is
+Two days of intense group work on scikit-learn reminded me how much it is
 hard work. I thought that it was maybe a good idea to try to illustrate
 why.
 
@@ -153,41 +160,42 @@ Contributors to the sprint
 
 .. class:: columns
 
-  * Gaël Varoquaux, Inria
-  * Jérémie du Boisberranger, Inria
-  * Jean-Baptiste Schiratti, Telecom ParisTech
-  * Eric Lebigot, CFM
-  * Sebastien Treguer, Independent
+  * Albert Thomas, Huawey
   * Alexandre Boucaud, Inria
-  * Ivan Panico, Deloitte
   * Alexandre Gramfort, Inria
-  * Sergül Aydöre, Stevens Institute of Technology
-  * Samuel Ronsin, Dataiku
+  * Eric Lebigot, CFM
+  * Gaël Varoquaux, Inria
+  * Ivan Panico, Deloitte
+  * Jean-Baptiste Schiratti, Telecom ParisTech
+  * Jérémie du Boisberranger, Inria
   * Léo Dreyfus-Schmidt, Dataiku
   * Nicolas Goix
-  * Albert Thomas, Huawey
+  * Samuel Ronsin, Dataiku
+  * Sebastien Treguer, Independent
+  * Sergül Aydöre, Stevens Institute of Technology
 
 
 **In Austin**
 
 .. class:: columns
 
-  * Roman Yurchak, independent
-  * Joan Massich, Inria
-  * William de Vazelhes, Inria
   * Andreas Mueller, Columbia
-  * Olivier Grisel, Inria
+  * Andreas Mueller, Columbia
   * Guillaume Lemaître, Inria
+  * Jan van Rijn, Columbia
+  * Joan Massich, Inria
   * Joris Van den Bosches, Inria
   * Nicolas Hug, Columbia
-  * Andreas Mueller, Columbia
+  * Olivier Grisel, Inria
+  * Roman Yurchak, independent
+  * William de Vazelhes, Inria
 
 **Remote**
 
 .. class:: columns
 
-  * Joel Nothman, University of Sydney
   * Hanmin Qin, Peking University
+  * Joel Nothman, University of Sydney
 
 |
 

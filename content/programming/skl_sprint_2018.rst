@@ -50,6 +50,14 @@ Too many things were done to be listed here. Here is brief overview:
   marking missing data
   (`PR <https://github.com/scikit-learn/scikit-learn/pull/8075>`__).
 
+* **Pypy support**: pypy support was merged.
+  (`PR <https://github.com/scikit-learn/scikit-learn/pull/11010>`__).
+
+* **Random Forest with 100 estimators** The default of `n_estimator` in
+  RandomForest was changed from 10, which was fast but statistically
+  poor, to 100 (`PR
+  <https://github.com/scikit-learn/scikit-learn/pull/11542>`__).
+
 * **Changing to 5-fold**: we changed to default of cross-validation from
   3-fold to 5-fold
   (`PR <https://github.com/scikit-learn/scikit-learn/pull/11557>`__).
@@ -214,3 +222,6 @@ Sponsors
 
 Thank you all for the support
 
+|
+
+Also thanks to Andy Mueller for feedback on this blog post.

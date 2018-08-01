@@ -224,4 +224,4 @@ Thank you all for the support
 
 |
 
-Also thanks to Andy Mueller for feedback on this blog post.
+Also thanks to Andy Mueller and Olivier Grisel for feedback on this blog post.

@@ -5,7 +5,6 @@ Sprint on scikit-learn, in Paris and Austin
 
 :date: 2018-08-01
 :tags: scikit-learn, open-source, reproducible research, scientific software
-:status: draft
 
 Two weeks ago, we held a scikit-learn sprint in Austin and Paris. Here is
 a brief report, on progresses and challenges.
@@ -162,8 +161,8 @@ Contributors to the sprint
 .. sidebar:: Women contributors
 
    We deeply regret having only one woman in this long list of
-   contributors. We would love to welcome more contributors from
-   under-represented groups.
+   contributors. We care about diversity and welcome contributors from
+   under-represented groups [*]_.
 
 **In Paris**
 
@@ -189,11 +188,11 @@ Contributors to the sprint
 .. class:: columns
 
   * Andreas Mueller, Columbia
-  * Andreas Mueller, Columbia
   * Guillaume Lemaître, Inria
   * Jan van Rijn, Columbia
   * Joan Massich, Inria
-  * Joris Van den Bosches, Inria
+  * Joris Van den Bossche, Inria
+  * Loïc Estève, Inria
   * Nicolas Hug, Columbia
   * Olivier Grisel, Inria
   * Roman Yurchak, independent
@@ -227,3 +226,9 @@ Thank you all for the support
 |
 
 Also thanks to Andy Mueller and Olivier Grisel for feedback on this blog post.
+
+.. [*] We aspire to treat everybody excatly the same way. However,
+   acknowledging the fact that there is currently a lack of diversity, we
+   are happy to do some outreach and give extra help onboarding
+   newcomers.
+

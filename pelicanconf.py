@@ -43,7 +43,7 @@ SUMMARY_MAX_LENGTH = 50
 RELATIVE_URLS = True
 
 STATIC_PATHS = ['images', 'science/attachments', 'programming/attachments',
-                'personnal/attachments']
+                'personnal/attachments', 'pages/attachments']
 
 IGNORE_FILES = ['content/science/attachments/citations.html',
                 '.#*',]
@@ -88,7 +88,8 @@ SOCIAL = (
 PROFILE_IMAGE_URL = 'http://gael-varoquaux.info/images/gael.png'
 
 # The pretty picture for the sidebar
-COVER_IMG_URL = 'http://gael-varoquaux.info/images/cover_img.jpg'
+# Now done in the CSS, "pure.css", to enable overide in given pages.
+#COVER_IMG_URL = 'http://gael-varoquaux.info/images/cover_img.jpg'
 
 TAGLINE = "computer / data / brain science"
 

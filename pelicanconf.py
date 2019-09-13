@@ -11,15 +11,18 @@ TWITTER_USERNAME = 'GaelVaroquaux'
 
 TIMEZONE = 'Europe/Paris'
 
-DEFAULT_LANG = u'en'
+DEFAULT_LANG = 'en'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
+AUTHOR_FEED_ATOM = None
+AUTHOR_FEED_RSS = None
 
 # Posts in the future get assigned a draft status
 WITH_FUTURE_DATES = True
+
 
 # Blogroll
 MENUITEMS =  (
@@ -40,8 +43,7 @@ DEFAULT_PAGINATION = 10
 SUMMARY_MAX_LENGTH = 50
 
 # Uncomment following line if you want document-relative URLs when developing
-RELATIVE_URLS = True
-
+#RELATIVE_URLS = True
 STATIC_PATHS = ['images', 'science/attachments', 'programming/attachments',
                 'personnal/attachments', 'pages/attachments']
 

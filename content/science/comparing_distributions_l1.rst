@@ -2,10 +2,9 @@
 Comparing distributions: Kernels estimate good representants, l1 distances give good tests
 ============================================================================================================
 
-:date: 2019-12-10
+:date: 2019-12-8
 :authors: Meyer Scetbon & Gaël Varoquaux
 :tags: science, research, machine learning, two-sample testing, conferences, statistics
-
 
 .. note::
 

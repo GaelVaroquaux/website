@@ -1,6 +1,6 @@
-============================================================================================================
-Comparing distributions: Kernels estimate good representants, l1 distances give good tests
-============================================================================================================
+===============================================================================================================
+Comparing distributions: Kernels estimate good representations, l1 distances give good tests
+===============================================================================================================
 
 :date: 2019-12-8
 :authors: Meyer Scetbon & Gaël Varoquaux
@@ -31,8 +31,8 @@ The context: two-sample testing
 Given two samples from two unknown populations, the goal of two-sample tests is
 to determine whether the underlying populations differ with a statistical
 significance. For instance, we may care to know whether the
-spatial distributions across the US differ between McDonald’s and KFC
-restaurants. This is a difficult question: we have access to data points,
+McDonald's and KFC use different logic to chose locations of restaurants
+across the US. This is a difficult question: we have access to data points,
 but not the underlying generative mechanism, that is probably governed by
 marketing strategies.
 
@@ -40,7 +40,11 @@ marketing strategies.
    :width: 70%
    :align: center
 
-There is **a lot of information in how close observed data
+From kernel mean embeddings to distances on distributions
+==========================================================
+
+In the example of spatial distributions restaurants,
+there is **a lot of information in how close observed data
 points lie in the original measurement space (here geographic coordinates)**.
 Kernel methods arise naturally to capture this information. They can be
 applied to distributions, building representatives of distributions:
@@ -119,12 +123,11 @@ The `weak convergence of probability measures
 is a notion of convergence that is based **not just on having events with
 probabilities that are converging, but also that some events are
 “close”**. Indeed, classic convergence in probability just tells us that
-two observations should have the same probability. Weak convergence
-takes in account the topology of the
+the same observation should have the same probability in the two distributions. Weak convergence takes in account the topology of the
 observations. For instance, to go back to the problem of spatial
 distributions of restaurants, it does not only look at whether the
 probabilities of having a Mc Donald’s or a KFC restaurant converge on
-11th Wall Street, but also at whether they are close on 9th Wall Street.
+11th Wall Street, but also at restaurants are likely on 9th Wall Street.
 
 A simple example to see why these matters is to consider two Dirac
 distributions: spikes in a single point. If we bring these spikes closer
@@ -167,6 +170,12 @@ metric properties, generalizing the results that were established by
 <http://papers.nips.cc/paper/5685-fast-two-sample-testing-with-analytic-representations-of-probability-measures>`_
 for the special case of the L2 metric.
 
+.. figure:: attachments/comparing_distributions_l1/optimizing_position.png
+   :width: 70%
+   :align: center
+
+   Sampling at different positions
+
 We further develop the testing procedures by showing that other tricks
 known to improve testing with the L2 metric can be adapted to other
 metrics, such as the L1 metric. Fast and performant tests can be obtained
@@ -191,7 +200,7 @@ will be dense, as well as the differences between the representatives
 that we use to build our tests (for instance the values at the locations
 that we use to build the tests above). l1 norms capture better dense
 differences than l2 norms –this is the reason why, used as penalties,
-they induce sparsity).
+they induce sparsity.
 
 .. image:: attachments/comparing_distributions_l1/l1_vs_l2.png
    :align: right
@@ -215,3 +224,20 @@ some zero, or nearly-zero coordinates.
    noise in the observations, unlike the total variation for which events
    must perfectly coincide in both set of observations (the total
    variation does not metrize the weak convergence).
+
+.. topic:: **References**
+
+   The framework exposed here is one that was developed over a long line
+   of research, which our work builds upon.
+   `Our paper
+    <https://papers.nips.cc/paper/9398-comparing-distributions-ell_1-geometry-improves-kernel-two-sample-testing.html>`_ gives a complete list of references, however, some useful review papers are
+
+   * C.-J. Simon-Gabriel and B. Schölkopf. Kernel distribution
+     embeddings: Universal kernels, *characteristic kernels and kernel
+     metrics on distributions*, `arXiv:1604.05251
+     <https://arxiv.org/abs/1604.0525>`_, 2016.
+
+   * A. Gretton, K.M. Borgwardt, M.J. Rasch, B. Schölkopf, A. Smola; *A
+     Kernel Two-Sample Test*, `JMLR, 2012
+     <http://www.jmlr.org/papers/v13/gretton12a.html>`_.
+

@@ -40,8 +40,8 @@ marketing strategies.
    :width: 70%
    :align: center
 
-There is a lot of information in the proximity between observed data
-points in the original measurement space (here geographic coordinates).
+There is a lot of information in how close observed data
+points lie in the original measurement space (here geographic coordinates).
 Kernel methods arise naturally to capture this information. They can be
 applied to distributions, building representatives of distributions:
 `Kernel embeddings of distributions
@@ -61,7 +61,7 @@ points with a kernel.
 
    Kernel mean embeddings for two distributions of points
 
-For two-sample testing, kernel embeddings can be used to compute distance
+For two-sample testing, kernel embeddings can be used to compute distances
 between distributions, building metrics over the space of probability
 measures. Metrics between probability measures can be defined via the
 notion of Integral Probability Metric (IPM): as a difference of
@@ -71,8 +71,8 @@ expectations:
    \text{IPM}[F,P,Q]:=\sup_{f\in F}(\mathbb{E}_{x\sim
    P}\left[f(x)\right]-\mathbb{E}_{y\sim Q}\left[f(y)\right])
 
-where F is a class of functions. This defining is appealing between it
-characterized the difference between P and Q by the function for which
+where F is a class of functions. This definition is appealing because it
+characterizes the difference between P and Q by the function for which
 the expectancy differs most. The specific choice of class of function
 defines the metric. If we now consider a kernel, it implicitly defines a
 space of functions (intuitively related to all the possible KDEs
@@ -86,13 +86,20 @@ convenient expression, the RKHS distance between the mean embeddings:
    \text{MMD}[P,Q]=\Vert \mu_P-\mu_Q\Vert_{H_k}
 
 For good choices of kernels, the MMD has appealing mathematical
-properties to compare distributions. With Kernels said to be
+properties to compare distributions. With kernels said to be
 characteristic, eg Gaussian kernels, the MMD is a metric: MMD[P, Q] = 0
 if and only if P = Q. Using the MMD for two-sample testing –given only
 observations from the distributions, and not P and Q–  requires using an
-empirical estimation of the MMD.
+empirical estimation of the MMD. This can be done by computing the RKHS
+norm in the expression above, which leads to summing kernel evaluations
+on all data points in P and Q.
 
-Our work addresses the question of which norm is best to use on the difference of mean embeddings, µQ - µP (as well as other representatives, namely the smooth characteristic function, SCF). We consider metrics based on their Lp distances:
+Our work builds upon this framework, but deviates a bit from the
+classical definition of MMD as it addresses the question of which norm is
+best to use on the difference of mean embeddings, µQ - µP (as well as
+other representatives, namely the smooth characteristic function, SCF).
+We consider a wider family of metrics based on the Lp distances between
+mean emdeddings (p=2 recovers the classic framework):
 
 .. math::
    d_{L^p,\mu}(P,Q):=\left(\int_{t\in\mathbb{R}^d }|\mu_P(t)-\mu_Q(t)|^p d\Gamma(t)\right)^{1/p}
@@ -141,7 +148,7 @@ Now that we have built metrics, we can derive two sample test statistics. A stra
 
 .. math::
 
-   \hat{d}^p_{\ell_p,\mu,J}[X,Y]:=n^{p/2}\Sigma_{j=1..J}|\mu_X(T_j)-\mu_Y(T_j)|^p
+   \hat{d}^p_{\ell_p,\mu,J}[X,Y]:=n^{p/2}\sum_{j=1..J}|\mu_X(T_j)-\mu_Y(T_j)|^p
 
 We show that this approximation maintains (on expectancy) the appealing
 metric properties, which generalizes the results that were established by

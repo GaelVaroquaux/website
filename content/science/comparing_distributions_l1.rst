@@ -115,7 +115,9 @@ The `weak convergence of probability measures
 <https://en.wikipedia.org/wiki/Convergence_of_measures#Weak_convergence_of_measures>`_
 is a notion of convergence that is based not just on having events with
 probabilities that are converging, but also captures that some events are
-“close”. In other terms, it takes in account the topology of the
+“close”. Indeed, classic convergence in probability just tells us that
+two observations should have the same probability. Weak convergence
+takes in account the topology of the
 observations. For instance, to go back to the problem of spatial
 distributions of restaurants, it does not only look at whether the
 probabilities of having a Mc Donald’s or a KFC restaurant converge on
@@ -128,7 +130,9 @@ position will not detect any convergence until the spikes exactly
 overlap.
 
 
-Using Kernel embeddings of distributions enables to capture the aspects of convergence in the spatial domain because the Kernels used give a spatial smoothness to the representatives:
+Using kernel embeddings of distributions enables to capture the aspects
+of convergence in the spatial domain because the kernels used give a
+spatial smoothness to the representatives:
 
 .. image:: attachments/comparing_distributions_l1/converging_diracs.png
    :width: 70%
@@ -137,21 +141,25 @@ Using Kernel embeddings of distributions enables to capture the aspects of conve
 
 Having a metric on probability distributions that captures the topology
 of the observations is important for many applications, for instance when
-fitting GANs to generate images: the goal is not to only capture when two
-images are exactly the same.
+fitting GANs to generate images: the goal is not to only capture that
+images are exactly the same, but also that they maybe be "close".
 
 
 Two-sample testing procedures
 ==============================
 
-Now that we have built metrics, we can derive two sample test statistics. A straightforward way of doing it would involve large sums on all the observations, which would be costly. Hence, we resort to a good approximation by sampling a set of {Tj} locations from the distribution Γ:
+Now that we have built metrics, we can derive two-sample test statistics.
+A straightforward way of doing it would involve large sums on all the
+observations, which would be costly. Hence, we resort to a good
+approximation by sampling a set of {Tj} locations from the distribution
+Γ:
 
 .. math::
 
    \hat{d}^p_{\ell_p,\mu,J}[X,Y]:=n^{p/2}\sum_{j=1..J}|\mu_X(T_j)-\mu_Y(T_j)|^p
 
 We show that this approximation maintains (on expectancy) the appealing
-metric properties, which generalizes the results that were established by
+metric properties, generalizing the results that were established by
 `Chwialkowski et al 2015
 <http://papers.nips.cc/paper/5685-fast-two-sample-testing-with-analytic-representations-of-probability-measures>`_
 for the special case of the L2 metric.

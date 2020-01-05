@@ -121,7 +121,7 @@ metrics tend to zero if and only if P and Q weakly converge.
 The `weak convergence of probability measures
 <https://en.wikipedia.org/wiki/Convergence_of_measures#Weak_convergence_of_measures>`_
 is a notion of convergence that is based **not just on having events with
-probabilities that are converging, but also that some events are
+probabilities that are the same for the two distributions, but also that some events are
 “close”**. Indeed, classic convergence in probability just tells us that
 the same observation should have the same probability in the two distributions. Weak convergence takes in account the topology of the
 observations. For instance, to go back to the problem of spatial
@@ -164,7 +164,7 @@ approximation by sampling a set of {Tj} locations from the distribution
 
    \hat{d}^p_{\ell_p,\mu,J}[X,Y]:=n^{p/2}\sum_{j=1..J}|\mu_X(T_j)-\mu_Y(T_j)|^p
 
-We show that this approximation maintains (on expectancy) the appealing
+We show that this approximation maintains (almost surely) the appealing
 metric properties, generalizing the results that were established by
 `Chwialkowski et al 2015
 <http://papers.nips.cc/paper/5685-fast-two-sample-testing-with-analytic-representations-of-probability-measures>`_
@@ -228,10 +228,11 @@ some zero, or nearly-zero coordinates.
 .. topic:: **References**
 
    The framework exposed here is one that was developed over a long line
-   of research, which our work builds upon.
-   `Our paper
-    <https://papers.nips.cc/paper/9398-comparing-distributions-ell_1-geometry-improves-kernel-two-sample-testing.html>`_ gives a complete list of references, however, some useful review papers are
-
+   of research, which our work builds upon. `Our paper
+   <https://papers.nips.cc/paper/9398-comparing-distributions-ell_1-geometry-improves-kernel-two-sample-testing.html>`_
+   gives a complete list of references, however, some useful review
+   papers are
+   
    * C.-J. Simon-Gabriel and B. Schölkopf. Kernel distribution
      embeddings: Universal kernels, *characteristic kernels and kernel
      metrics on distributions*, `arXiv:1604.05251

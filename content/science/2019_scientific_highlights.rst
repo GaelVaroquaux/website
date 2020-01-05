@@ -301,6 +301,11 @@ speeds up convergence.
 shows that **one should not use convolutional neural networks on fMRI
 data**: these images are not translational invariant.
 
+.. sidebar:: **Preprints**
+
+   All papers are available as preprints, eg on `my site
+   <http://gael-varoquaux.info/publications.html>`_.
+
 |
 
 Open science

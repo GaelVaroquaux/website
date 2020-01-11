@@ -56,6 +56,13 @@ used a different random seed for each experiment.
    What hyperparameter optimization method were used.
 
 .. figure::
+   ../science/attachments/survey_of_ml_experimental_methods/number_datasets.png
+   :align: center
+   :width: 400px
+
+   Number of different datasets used for benchmarking.
+
+.. figure::
    ../science/attachments/survey_of_ml_experimental_methods/number_seeds_or_trials.png
    :align: center
    :width: 400px

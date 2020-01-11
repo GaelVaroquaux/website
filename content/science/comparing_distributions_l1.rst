@@ -242,3 +242,9 @@ some zero, or nearly-zero coordinates.
      Kernel Two-Sample Test*, `JMLR, 2012
      <http://www.jmlr.org/papers/v13/gretton12a.html>`_.
 
+   * `The NeurIPS 2019 tutorial
+     <https://slideslive.com/38921490/interpretable-comparison-of-distributions-and-models>`_,
+     by Gretton, Sutherland, and Jitkrittum, is extremely didactic and gives
+     a lot of big picture
+
+· 

@@ -4,10 +4,9 @@
 
 :date: 2020-1-5
 :tags: science, research, machine learning, neuroimaging, statistics
-:status: draft
 
-My current research interests span wide: from brain sciences to core data
-science. My overall quest is to build **methodology drawing insights from
+My current research spans wide: from brain sciences to core data
+science. My overall interest is to build **methodology drawing insights from
 data** for questions that have often been addressed qualitatively. If I can
 highlight a few publications from 2019 [1]_, the common thread would be
 computational statistics, from dirty data to brain images. Let me try to
@@ -16,7 +15,7 @@ give the gist of these progresses, in simple terms.
 
 .. class:: side-hanging
 
-  .. [1] It's already 2019, I'm always late.
+  .. [1] It's already 2020, I'm always late.
 
 .. contents:: Highlights
    :depth: 1
@@ -62,7 +61,7 @@ density estimator
 
 |
 
-In
+With Meyer Scetbon, in
 `Scetbon & Varoquaux, NeurIPS <http://papers.nips.cc/paper/9398-comparing-distributions-ell_1-geometry-improves-kernel-two-sample-testing>`_,
 we investigate how to measure best the difference between these
 representants. We show that the best choice is to take the absolute value
@@ -99,8 +98,8 @@ assessment of psychological traits on quantitative brain
 data, rather than qualitative behavioral observations. But, to build
 biomarkers, there are many details that go in estimating functional
 connectivity from fMRI, something that I have studied for more than 10
-years. In `Dadi et al
-<https://www.sciencedirect.com/science/article/abs/pii/S1053811919301594>`_
+years. With Kamalakar Dadi, in `Dadi et al
+<https://www.sciencedirect.com/science/article/abs/pii/S1053811919301594>`_,
 we ran thorough empirical benchmarks to find which methodological choices
 for the various steps of the pipeline give best prediction across
 multiple cohorts. Specifically, we studied 1) defining regions of
@@ -164,7 +163,7 @@ Population shrinkage of covariance
    Statistics for brain signals
 
 Estimating covariances is central for functional brain connectivity and
-in many other applications. In `Rahim et al
+in many other applications. With Mehdi Rahim, in `Rahim et al
 <https://www.sciencedirect.com/science/article/abs/pii/S1361841518301014>`_
 we considered the case of a population of random processes with
 related covariances, as for instance when estimating functional
@@ -247,9 +246,9 @@ Deep learning on non-translation-invariant images
 
 Brain images, in particular images of brain activity, are very different
 from the natural images on which most computer-vision research focuses.
-An central difference is that detecting activity in different part of the
+A central difference is that detecting activity in different parts of the
 brain completely changes the meaning of this detection, while detecting a
-cat in the left or the right of a picture on facebook makes no
+cat in the left or the right of a picture on Facebook makes no
 difference. This is important because many progresses of computer vision,
 such as convolutional neural networks, are built on the fact that natural
 images are statistically translational invariant. On the opposite, brain
@@ -264,7 +263,7 @@ they have lead to costly non-smooth optimizations that cannot easily be
 used with the optimization framework of deep learning, stochastic
 gradient descent.
 
-In `Aydore et al, ICML
+With Sergul Aydore, in `Aydore et al, ICML
 <http://proceedings.mlr.press/v97/aydore19a.html>`_, we have introduced a
 spatial regularization that is compatible with the deep learning toolbox.
 During the stochastic optimization, we impose random spatial structure
@@ -316,7 +315,7 @@ realize that every single one of them comes with code on a github
 repository and is done on open data, which means that they can all be
 easily reproduced. I'm very proud of the teams behind these papers.
 Achieving this level of reproducibility requires hard work and
-discipline. It is also a testimonial to an community investment in
+discipline. It is also a testimonial to a community investment in
 software tools and infrastructure for open science that has been going on
 for decades and gives the foundations on which these works build.
 

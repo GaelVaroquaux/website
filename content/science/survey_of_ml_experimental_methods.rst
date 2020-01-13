@@ -29,6 +29,8 @@ report <http://arxiv.org/>`__ if you are interested.
 |
 
 **Highlights**
+The response rates were 35.6% for NeurIPS and 48.6% 334
+for ICLR.
 A vast majority of empirical works optimize model hyper-parameters,
 thought almost half of these use manual tuning and most of the automatic
 hyper-parameter optimization is done with grid search. The typical number
@@ -36,33 +38,34 @@ of hyper-parameter set is in interval 3-5, and less than 50 model fits
 are used to explore the search space. In addition, most works also
 optimized their baselines (typically, around 4 baselines).
 
-Finally, studies typically ran 4 experiments, *eg* of different
-datasets, and around 50% of them
+Finally, studies typically reported 4 results per model per task to provide a measure of variance, and around 50% of them
 used a different random seed for each experiment.
 
 **Sample results**
 
-.. figure:: ../science/attachments/survey_of_ml_experimental_methods/hyper_parameter_optimization.png
+.. class:: side-caption
+
+  .. figure:: ../science/attachments/survey_of_ml_experimental_methods/hyper_parameter_optimization.png
    :align: center
    :width: 400px
 
    How many papers with experiments optimized hyperparameters.
 
-.. figure::
+  .. figure::
    ../science/attachments/survey_of_ml_experimental_methods/tuning_methods.png
    :align: center
    :width: 400px
 
    What hyperparameter optimization method were used.
 
-.. figure::
+  .. figure::
    ../science/attachments/survey_of_ml_experimental_methods/number_datasets.png
    :align: center
    :width: 400px
 
    Number of different datasets used for benchmarking.
 
-.. figure::
+  .. figure::
    ../science/attachments/survey_of_ml_experimental_methods/number_seeds_or_trials.png
    :align: center
    :width: 400px

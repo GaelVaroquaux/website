@@ -9,7 +9,7 @@ Survey of machine-learning experimental methods at NeurIPS2019 and ICLR2020
 
 .. note::
 
-   A simply survey asking authors of two leading machine-learning
+   A simple survey asking authors of two leading machine-learning
    conferences a few quantitative questions on their experimental
    procedures.
 

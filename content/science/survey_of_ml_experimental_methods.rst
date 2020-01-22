@@ -5,7 +5,6 @@ Survey of machine-learning experimental methods at NeurIPS2019 and ICLR2020
 :date: 2020-01-20
 :authors: Xavier Bouthillier & Gaël Varoquaux
 :tags: science, research, machine learning, benchmarking, conferences, experimental methods
-:status: draft
 
 .. note::
 

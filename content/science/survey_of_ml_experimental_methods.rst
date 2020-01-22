@@ -9,7 +9,7 @@ Survey of machine-learning experimental methods at NeurIPS2019 and ICLR2020
 
 .. note::
 
-   A simply survey asking authors of two leading machine-learning
+   A simple survey asking authors of two leading machine-learning
    conferences a few quantitative questions on their experimental
    procedures.
 
@@ -20,7 +20,7 @@ simple survey asking to authors of two leading conferences, NeurIPS 2019
 and ICLR 2020, a few quantitative questions on their experimental
 procedures.
 
-A `technical report on arxiv <https://hal.archives-ouvertes.fr/hal-02447823>`_ summarizes our
+A `technical report on HAL <https://hal.archives-ouvertes.fr/hal-02447823>`_ summarizes our
 finding. It gives a simple picture of how hyper-parameters are set, how
 many baselines and datasets are included, or how seeds are used.
 Below, we give a very short summary, but please read (and `cite <https://hal.archives-ouvertes.fr/hal-02447823v1/bibtex>`__) 

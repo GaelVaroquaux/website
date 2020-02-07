@@ -43,7 +43,7 @@ DEFAULT_PAGINATION = 10
 SUMMARY_MAX_LENGTH = 50
 
 # Uncomment following line if you want document-relative URLs when developing
-#RELATIVE_URLS = True
+RELATIVE_URLS = True
 STATIC_PATHS = ['images', 'science/attachments', 'programming/attachments',
                 'personnal/attachments', 'pages/attachments']
 
@@ -62,7 +62,11 @@ import logging
 LOG_FILTER = [(logging.WARN, 'Empty alt attribute for image.*'),
               (logging.ERROR, 'Skipping science/attachments/citations.html')]
 
-
+import sys
+sys.path.append('.')
+# https://raw.githubusercontent.com/getpelican/pelican-plugins/master/readtime/readtime.py
+import readtime
+PLUGINS=[readtime]
 
 ###############################################################################
 # For the pure theme

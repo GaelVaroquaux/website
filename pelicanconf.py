@@ -43,7 +43,7 @@ DEFAULT_PAGINATION = 10
 SUMMARY_MAX_LENGTH = 50
 
 # Uncomment following line if you want document-relative URLs when developing
-RELATIVE_URLS = True
+#RELATIVE_URLS = True
 STATIC_PATHS = ['images', 'science/attachments', 'programming/attachments',
                 'personnal/attachments', 'pages/attachments']
 

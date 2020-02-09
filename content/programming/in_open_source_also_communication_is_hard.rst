@@ -62,6 +62,7 @@ feedback:
   my computer in the evening.
 
 .. sidebar:: **Related writings**
+   :class: side-hanging
 
    Ralf Gommers discusses `the cost of an open source
    contribution
@@ -92,7 +93,7 @@ is unavoidable given that the complexity of code grows faster than its number of
 features [#]_, and, even for a company as rich as Google,
 project maintenance becomes intractable on huge projects [#]_.
 
-.. class:: side-hanging
+.. container:: side-hanging
 
    .. [#] `An Experiment on Unit Increase in Problem Complexity, Woodfield 1979
           <https://ieeexplore.ieee.org/document/1702600>`_

@@ -17,7 +17,7 @@ In open source also, communication is hard
 A large software project is above a social exercise in which technical
 experts try to reach good decisions together, for instance on github
 pull requests. But communication is difficult. It is easy to
-underestimate how much well-intended human beings can talk across
+underestimate how much well-intended human beings can talk past
 each-other and get hurt, in open source as elsewhere. Understanding why
 they are communication challenges can help, as well as applying a few
 simple rules.
@@ -45,8 +45,9 @@ Open source can be anxiety-generating for the maintainers
 
 Maintainers ensure the quality and the long-term life of an open-source
 project. As such, **they tend to feel responsible for any shortcoming in
-the product**. In addition, they often do this work because they care.
-But they can quickly become a converging point of anxiety-generating
+the product**. In addition, they often do this work because they care,
+even though it may not bring any financial support.
+But maintaining code can quickly become filled with anxiety-generating
 feedback:
 
 - Code has bugs; the more code, the more bugs. Watching a issue tracker
@@ -70,6 +71,9 @@ feedback:
 
    Ilya Grigorik suggests: `Don't push your pull request
    <https://www.igvita.com/2011/12/19/dont-push-your-pull-requests/>`_.
+
+   Kirstie Whitaker lays out `10 rules for running an inclusive project
+   <https://zenodo.org/record/3383063>`_.
 
 The more popular a project, the more weight it puts on its maintainers'
 shoulders. A consequence is that **maintainers are tired**, and can
@@ -105,7 +109,7 @@ project maintenance becomes intractable on huge projects [#]_.
           <https://github.com/tensorflow/tensorflow/pull/33460>`_
 
 **A maintainer's job is to say no often**, to protect the project. But,
-as any gatekeeping, it can unfurtunately become an excercise in unchecked
+as any gatekeeping, it can unfortunately become an excercise in unchecked
 power. Making objective choices for these difficult decisions is hard,
 and we all tend naturally to trust more people that we know.
 

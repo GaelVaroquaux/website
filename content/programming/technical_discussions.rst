@@ -382,7 +382,7 @@ I want to work better with others.
 .. topic:: Thanks
 
    to many who gave me feedback: Adrin Jalali, Andreas Mueller,
-   Elizabeth Dupres, Emmanuelle Gouillart, Guillaume
+   Elizabeth DuPre, Emmanuelle Gouillart, Guillaume
    Lemaitre, Joel Nothman, Joris Van den Bossche, Nicolas Hug.
 
 ____

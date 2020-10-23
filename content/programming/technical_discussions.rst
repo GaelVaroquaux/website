@@ -45,7 +45,8 @@ Open source can be anxiety-generating for the maintainers
 
 Maintainers ensure the quality and the long-term life of an open-source
 project. As such, **they feel responsible for any shortcoming in
-the product**. In addition, they often do this work because they care.
+the product**. In addition, they often do this work because they care,
+even though it may not bring any financial support.
 But they can quickly become a converging point of anxiety-generating
 feedback:
 
@@ -92,7 +93,7 @@ The danger abusive gatekeeping
 .. add a image of puppy? And a gate?
 
 A maintainer quickly learns that every piece of code, no matter how cute
-it might be, will give him work in the long run, `just like a puppy
+it might be, will give him or her work in the long run, `just like a puppy
 <https://snarky.ca/setting-expectations-for-open-source-participation/#submittingacontribution>`_. This
 is unavoidable given that the complexity of code grows faster than its number of
 features [#]_, and, even for a company as rich as Google,
@@ -110,7 +111,7 @@ project maintenance becomes intractable on huge projects [#]_.
           <https://github.com/tensorflow/tensorflow/pull/33460>`_
 
 **A maintainer's job is to say no often**, to protect the project. But,
-as any gatekeeping, it can unfurtunately become an excercise in unchecked
+as any gatekeeping, it can unfortunately become an excercise in unchecked
 power. Making objective choices for these difficult decisions is hard,
 and we all tend naturally to trust more people that we know.
 

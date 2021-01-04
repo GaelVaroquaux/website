@@ -5,12 +5,12 @@
 :date: 2021-1-5
 :tags: science, research, machine learning, health, covid19, statistics
 
-The year 2020 has undoubtedly been interesting: the covid19 pandemic has
-impacted hugely our life, and our work. It stroke while I was on a work
-sabbatical in Montréal, at the `MNI <https://www.mcgill.ca/neuro/>`_ and
-the `MILA <https://mila.quebec/>`_, and it pushed further my interest in
-machine learning for health-care. **My highlights this year revolve around
-basic and applied data-science for health**.
+The year 2020 has undoubtedly been interesting: the covid19 pandemic
+stroke while I was on a work sabbatical in Montréal, at the `MNI
+<https://www.mcgill.ca/neuro/>`_ and the `MILA <https://mila.quebec/>`_,
+and it pushed further my interest in machine learning for health-care.
+**My highlights this year revolve around basic and applied data-science
+for health**.
 
 .. contents:: Highlights
    :depth: 2

@@ -18,8 +18,8 @@ Hiring someone to develop scikit-learn community and industry partners
     passionate about developing open-source communities for data science?
     This job is a unique opportunity.
 
-    On the one hand, the mandate will be to develop the wider community
-    behind scikit-learn; on the other hand to foster the foundation's
+    The mandate will be on the one hand to develop the wider community
+    behind scikit-learn, on the other hand to foster the foundation's
     partnerships, as this is our funding.
 
 Context: Scikit-learn @ Inria foundation
@@ -62,7 +62,7 @@ we did not lose our experienced developers.
 
 **Achieving sustainability**
 The resulting structure is set up to provide a career path to a few of
-our core people. Consequently, it is a French legal entity, acting as
+our core people. As a consequence, it is a French legal entity, acting as
 an employer, funded via sponsorship agreement with a few
 of major economic users of scikit-learn (check out `the list of our
 sponsors <https://scikit-learn.fondation-inria.fr>`_). The priorities of
@@ -121,7 +121,7 @@ Increasing our corporate visibility
 ------------------------------------
 
 Scikit-learn is one of the most used data-science tools. However, talking
-to senior decision-makers, their perception sometimes differs. Indeed, we
+to senior decision makers, their perception sometimes differs. Indeed, we
 are competing for visibility with many powerful actors.
 
 We must communicate beyond the open-source world to develop
@@ -150,7 +150,7 @@ A good fit
    :target: https://www.flickr.com/photos/randychiu/4602851011/
 
 
-We are looking for someone into open source, also who likes writing
+We are looking for someone into open source, but also who likes writing
 blog posts, social networks, organizing events, presenting scikit-learn,
 and improving processes.
 

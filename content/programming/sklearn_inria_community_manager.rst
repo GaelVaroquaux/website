@@ -28,7 +28,7 @@ Context: Scikit-learn @ Inria foundation
 The growth of Scikit-learn
 ----------------------------
 
-.. image:: attachments/scikit-learn-logo.png
+.. image:: ../programming/attachments/scikit-learn-logo.png
    :align: right
    :width: 200
 
@@ -43,6 +43,12 @@ Scikit-learn has hugely grown and is still growing in terms of userbase
 and expectation of quality. The development team these days is large,
 with many grass-root volunteering and some contributors spending a
 sizeable fraction of their work time.
+
+.. figure:: ../programming/attachments/sklearn_website_access.png
+   :align: center
+   :width: 450
+
+   Number of monthly website access
 
 Scikit-learn @ Inria foundation
 --------------------------------
@@ -97,7 +103,7 @@ probably to blame :).
 Growing our open-source community
 ----------------------------------
 
-.. image:: attachments/herdingcats.jpg
+.. image:: ../programming/attachments/herdingcats.jpg
    :align: right
    :width: 300
 
@@ -137,7 +143,7 @@ harder than it seems.
 A good fit
 ===========
 
-.. image:: attachments/one_man_band.jpg
+.. image:: ../programming/attachments/one_man_band.jpg
    :align: right
    :width: 250
    :alt: One Man Band, CCby2.0 from randychiu
@@ -161,4 +167,11 @@ This is a job about open source, for open source! It's not a perfect job:
 we have many administrative constraints in running the foundation, we are
 paying ourself less than a non-open-source job.
 
+|
+
+.. topic:: **Apply now**
+
+    We are looking forward to your application. You can submit them on
+    `the official job offer
+    <https://recrutement.inria.fr/public/classic/en/offres/2021-04058>`_
 

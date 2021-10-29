@@ -2,8 +2,7 @@
 Hiring someone to develop scikit-learn community and industry partners
 =========================================================================
 
-:date: 2021-09-15
-:status: draft
+:date: 2021-09-14
 :tags: open source, growth, communities, scikit-learn, inria, foundation
 
 

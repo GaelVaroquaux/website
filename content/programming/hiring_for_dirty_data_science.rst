@@ -1,5 +1,5 @@
-Hiring engineer and post-doc to simplify data science on dirty data
-====================================================================
+Hiring an engineer and post-doc to simplify data science on dirty data
+=======================================================================
 
 :date: 2021-10-29
 :tags: machine learning, data science, dirty data, hiring

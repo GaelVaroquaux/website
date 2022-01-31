@@ -3,7 +3,7 @@
 ======================================================
 
 :date: 2019-1-3
-:tags: science, research, machine learning, neuroimaging, brain science
+:tags: science, research, machine learning, neuroimaging, brain science, yearly report
 
 From a scientific perspective, 2018 [1]_ was once again extremely exciting
 thank to awesome collaborators (at `Inria

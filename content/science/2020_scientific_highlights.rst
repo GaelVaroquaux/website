@@ -3,7 +3,7 @@
 ======================================================
 
 :date: 2021-1-5
-:tags: science, research, machine learning, health, covid19, statistics
+:tags: science, research, machine learning, health, covid19, statistics, yearly report
 
 The year 2020 has undoubtedly been interesting: the covid19 pandemic
 stroke while I was on a work sabbatical in Montréal, at the `MNI

@@ -3,7 +3,7 @@
 ======================================================
 
 :date: 2020-1-5
-:tags: science, research, machine learning, neuroimaging, statistics
+:tags: science, research, machine learning, neuroimaging, statistics, yearly report
 
 My current research spans wide: from brain sciences to core data
 science. My overall interest is to build **methodology drawing insights from

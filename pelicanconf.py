@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = u'Ga\xebl Varoquaux'
 SITENAME = u'Ga\xebl Varoquaux'
-SITEURL = 'http://gael-varoquaux.info'
+SITEURL = 'https://gael-varoquaux.info'
 AUTHOR_EMAIL = 'gael.varoquaux@normalesup.org'
 GITHUB_URL = 'https://github.com/GaelVaroquaux/'
 TWITTER_USERNAME = 'GaelVaroquaux'
@@ -80,24 +80,24 @@ THEME = "pure"
 # - The icon name on http://fontawesome.io/icons/ after stripping 'fa-'
 # - The link itself
 SOCIAL = (
-    ('Google scholar', 'graduation-cap',
+    ('Google scholar', 'fa-solid fa-graduation-cap',
      'http://scholar.google.fr/citations?user=OGGu384AAAAJ', ''),
-    ('twitter', 'twitter-square', 'https://twitter.com/GaelVaroquaux', ''),
-    ('GitHub', 'github', GITHUB_URL, ''),
-    ("Artwork", 'camera-retro',
+    ('twitter', 'fa-brands fa-twitter-square', 'https://twitter.com/GaelVaroquaux', ''),
+    ('GitHub', 'fa-brands fa-github', GITHUB_URL, ''),
+    ("Artwork", 'fa-solid fa-camera-retro',
      'http://www.flickriver.com/photos/gaelvaroquaux/popular-interesting/',
 """<div class="extra"><div id="flickrstream"></div></div>"""),
 )
 # Linkedin, slideshare
 
 # My gravatar
-PROFILE_IMAGE_URL = 'http://gael-varoquaux.info/images/gael.png'
+PROFILE_IMAGE_URL = 'https://gael-varoquaux.info/images/gael.png'
 
 # The pretty picture for the sidebar
 # Now done in the CSS, "pure.css", to enable overide in given pages.
 #COVER_IMG_URL = 'http://gael-varoquaux.info/images/cover_img.jpg'
 
-TAGLINE = "computer / data / brain science"
+TAGLINE = "computer / data / health science"
 
 # global metadata to all the contents
 DEFAULT_METADATA = (('email', 'gael.varoquaux@normalesup.org'),

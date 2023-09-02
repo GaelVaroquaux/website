@@ -97,6 +97,7 @@ github-upload: publish
 	cd build/gaelvaroquaux.github.io && \
 	git pull && git clean -d -f
 	cp -r output/* build/gaelvaroquaux.github.io && \
+	cp citations.html build/gaelvaroquaux.github.io/pages
 	cd build/gaelvaroquaux.github.io && \
 	git add * && \
 	git add .nojekyll && \

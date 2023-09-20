@@ -26,7 +26,7 @@ WITH_FUTURE_DATES = True
 
 # Blogroll
 MENUITEMS =  (
-          ('Selected posts', 'tag/selected.html'),
+          #('Selected posts', 'tag/selected.html'),
           ('Latest posts', 'index.html#posts'),
           ('About me', 'about.html'),
           )

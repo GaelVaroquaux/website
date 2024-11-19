@@ -5,7 +5,8 @@ from __future__ import unicode_literals
 AUTHOR = u'Ga\xebl Varoquaux'
 SITENAME = u'Ga\xebl Varoquaux'
 SITEURL = 'https://gael-varoquaux.info'
-#SITEURL = 'http://localhost:8000/'
+# The below gets overiden in the publishconf.py
+SITEURL = 'http://localhost:8000/'
 AUTHOR_EMAIL = 'gael.varoquaux@normalesup.org'
 GITHUB_URL = 'https://github.com/GaelVaroquaux/'
 TWITTER_USERNAME = 'GaelVaroquaux'

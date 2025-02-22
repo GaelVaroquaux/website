@@ -41,7 +41,7 @@ PAGE_URL = '{slug}.html'
 URL = '{category}/{slug}.html'
 PAGE_SAVE_AS = '{slug}.html'
 
-DEFAULT_PAGINATION = 10
+DEFAULT_PAGINATION = 20
 SUMMARY_MAX_LENGTH = 50
 
 # Uncomment following line if you want document-relative URLs when developing
@@ -67,8 +67,9 @@ LOG_FILTER = [(logging.WARN, 'Empty alt attribute for image.*'),
 import sys
 sys.path.append('.')
 # https://raw.githubusercontent.com/getpelican/pelican-plugins/master/readtime/readtime.py
+# The readtime plugin
 import readtime
-PLUGINS=[readtime]
+PLUGINS=[readtime, ]
 
 ###############################################################################
 # For the pure theme
@@ -84,7 +85,8 @@ THEME = "pure"
 SOCIAL = (
     ('Google scholar', 'fa-solid fa-graduation-cap',
      'http://scholar.google.fr/citations?user=OGGu384AAAAJ', ''),
-    ('twitter', 'fa-brands fa-twitter-square', 'https://twitter.com/GaelVaroquaux', ''),
+    #('twitter', 'fa-brands fa-twitter-square', 'https://twitter.com/GaelVaroquaux', ''),
+    ('bluesky', 'fa-brands fa-bluesky', 'https://bsky.app/profile/gaelvaroquaux.bsky.social', ''),
     ('GitHub', 'fa-brands fa-github', GITHUB_URL, ''),
     ("Artwork", 'fa-solid fa-camera-retro',
      'http://www.flickriver.com/photos/gaelvaroquaux/popular-interesting/',
@@ -105,4 +107,17 @@ TAGLINE = "computer / data / health science"
 DEFAULT_METADATA = (('email', 'gael.varoquaux@normalesup.org'),
                     ('profile_image', PROFILE_IMAGE_URL))
 
+
+# A function used as jinja filter to find a default image
+# Used for opengraph summary
+import bs4
+
+def findimage(string):
+    soup = bs4.BeautifulSoup(string, 'html.parser')
+    img = soup.find('img')
+    if img is None:
+        return ""
+    return img['src']
+
+JINJA_FILTERS = {'findimage': findimage}
 

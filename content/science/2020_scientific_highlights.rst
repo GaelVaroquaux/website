@@ -251,9 +251,9 @@ capturing string similarities. The most interpretable of these approaches
 represents the data by continuous encoding on latent categories inferred
 automatically from recurrent substrings.
 
-This research is implemented in the `dirty-cat
-<https://dirty-cat.github.io/stable/>`_ Python library, which is making
-rapid progress.
+This research is implemented in the `skrub <https://skrub-data.org>`_
+Python library, which is making rapid progress (and was originally called
+dirty-cat).
 
 
 |

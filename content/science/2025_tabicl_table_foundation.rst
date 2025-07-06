@@ -84,6 +84,9 @@ The challenge: accounting for the structure of tables
 TabICL's solution
 -------------------
 
+Rowwise encoding
+..................
+
 .. figure:: attachments/tabicl/tabicl_architecture.png
    :width: 60%
    :align: right
@@ -94,6 +97,24 @@ TabICL's solution
 
 |
 
+Column-specific embeddings
+...........................
+
+.. figure:: attachments/tabicl/tabicl_embeddings.png
+   :width: 100%
+   :align: right
+
+   To apply different transformations on columns depending on their
+   statistical properties, TabICL builds positional embeddings for
+   columns that capture aspects of their distribution.
+
+
+|
+
+
+TabICL: powerful and easy to use
+==================================
+
 .. figure:: attachments/tabicl/tabicl_comparison.png
    :width: 100%
 
@@ -101,6 +122,7 @@ TabICL's solution
    boundaries on very simple toy data. It is useful to get a feeling of
    how classifiers behave.
 
+|
 
 .. note::
 

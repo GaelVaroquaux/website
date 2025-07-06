@@ -83,3 +83,5 @@ known how to do for decades.
 
     Find all my AI chronicles `here <https://gael-varoquaux.info/tag/ai-chronicle.html>`_
 
+    The goals of these "AI chronicles" is to introduce concepts of AI to a broader public, staying at a very very high level.
+

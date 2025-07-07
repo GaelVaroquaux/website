@@ -1,16 +1,18 @@
 ========================================================
-TabICL: Pretraining to build the best tabular learning
+TabICL: Pretraining the best tabular learner
 ========================================================
 
-:date: 2025-07-07
+:date: 2025-07-08
 :tags: machine learning, tabular learning, foundation models
+:status: draft
 
 .. note::
 
-   TabICL is a state-of-the-art tabular learner. The key is it a very
-   rich prior, that is baked in a pre-trained architecture -a table
-   foundation model-, and leveraged by in-context-learning. Thanks to
-   clever choices, it is fast and scalable, efficient even without a GPU.
+   TabICL is a state-of-the-art tabular learner `[Qu et al 2025]
+   <https://arxiv.org/abs/2502.05564>`_. The key is it a very rich
+   prior, that is baked in a pre-trained architecture -a table foundation
+   model-, and leveraged by in-context-learning. Thanks to clever
+   choices, it is fast and scalable, efficient even without a GPU.
 
 .. contents::
    :depth: 2
@@ -31,13 +33,13 @@ into statistical models**?
 
 The group of `F. Hutter
 <https://ml.informatik.uni-freiburg.de/profile/hutter>`_ pionneered new
-answers to this question with their TabPFN work `[Hollmann et al, 2025
+answers to this question with their TabPFN work `[Hollmann et al, 2025]
 <https://www.nature.com/articles/s41586-024-08328-6>`_.
 
 Tabular learning as a completion problem
 -----------------------------------------
 
-.. figure:: attachments/tabicl/table_in_context_learning.png
+.. figure:: ../science/attachments/tabicl/table_in_context_learning.png
    :width: 100%
    :align: right
 
@@ -66,6 +68,10 @@ TabPFN simulates data by cascading a series of simple transformations
 combining very few columns. The data-generative processes are actually
 more subtle, but the idea being that they are plausible for data tables.
 
+Experience (from us and others) shows that pretraining on a quality
+data-generation process is crucial to produce a good tabular learner,
+alike foundation models in other settings.
+
 |
 
 TabICL: improved architecture
@@ -74,12 +80,21 @@ TabICL: improved architecture
 The challenge: accounting for the structure of tables
 -----------------------------------------------------
 
-.. figure:: attachments/tabicl/tabpfn_architecture.png
+.. figure:: ../science/attachments/tabicl/tabpfn_architecture.png
    :width: 60%
    :align: right
 
    Tables are 2D objects, and the TabPFNv2 architecture alternates
    attentions across row and across columns
+
+In practice, a table is not a 1D structure, like sentences. It is closer
+to a 2D structure, with rows and columns. A good architecture will
+account for this structure, and the TabPFNv2 architecture uses
+transformers with alternating across-row and across-column attention.
+
+One problem is the computational complexity: attention is quadratic in
+the number of entries, and the bi-directional transform of TabPFNv2 leads
+to a cost in *O(n p² + p n²)* for a table with *n* rows and *p* columns.
 
 TabICL's solution
 -------------------
@@ -87,7 +102,7 @@ TabICL's solution
 Rowwise encoding
 ..................
 
-.. figure:: attachments/tabicl/tabicl_architecture.png
+.. figure:: ../science/attachments/tabicl/tabicl_architecture.png
    :width: 60%
    :align: right
 
@@ -95,12 +110,23 @@ Rowwise encoding
    smaller, fixed-sized, represention, before performing across-row
    in-context learning.
 
+
+For more scalability and better inductive bias, our model, TabICL, first
+embeds the rows (using a first transformer) and then does in-context
+learning across rows (with a second transformer). The resulting
+computational complexity is *O(n p² + n²)*, which is more scalable,
+though still quadratic in *n* and *p*.
+
+Scalability is important because it enables us to pretrain TabICL on both
+small *and* large datasets, and as a consquence TabICL is a good
+predictor for large datasets.
+
 |
 
 Column-specific embeddings
 ...........................
 
-.. figure:: attachments/tabicl/tabicl_embeddings.png
+.. figure:: ../science/attachments/tabicl/tabicl_embeddings.png
    :width: 100%
    :align: right
 
@@ -109,20 +135,67 @@ Column-specific embeddings
    columns that capture aspects of their distribution.
 
 
-|
+Another important innovation of TabICL is that it inputs the entries in
+the transformer with column-specific embeddings. These column embeddings
+are computed to be a function of the distribution of the column. For
+this, we use a set transformer, which is a scalable transformer-like way
+of building a function on sets (but without the quadratic complexity).
+
+After pretraining, we find that the column embeddings have learned a
+mapping that implicit captures statistical aspects of the data
+distribution in the column, as the kurtosis or the skewness.
 
 
-TabICL: powerful and easy to use
-==================================
+The result: a powerful and easy to use tabular learner
+=======================================================
 
-.. figure:: attachments/tabicl/tabicl_comparison.png
+After a lot of pretraining on very well chosen synthetic data, TabICL is
+a state-of-the-art tabular. Pretraining gave it the right inductive bias,
+as visible from the classifier-comparison plot below:
+
+.. figure:: ../science/attachments/tabicl/tabicl_comparison.png
    :width: 100%
 
    A classic classification comparison plot that shows the decision
    boundaries on very simple toy data. It is useful to get a feeling of
    how classifiers behave.
 
+It is interesting to see that while TabICL form very flexible decision
+boundaries, they do extend along the horizontal and vertical axes, as the
+decision tree and random forest. These axis-aligned features are a
+very important aspect of the inductive bias.
+
+At the end of the day, TabICL is an excellent tabular learner, as visible
+on benchmarks:
+
+.. figure:: ../science/attachments/tabicl/result_comparison.png
+   :align: right
+
+   TabICL is a great predictor: Comparison of many predictors.
+
+.. figure:: ../science/attachments/tabicl/tabarena.png
+   :align: right
+
+   Experimental results, from a benchmark paper independent of the TabICL
+   paper: tabarena `[Erickson et al, 2025]
+   <https://arxiv.org/abs/2506.16791>`_
+
 |
+
+The benefit of TabICL becomes more marked for larger datasets:
+
+.. figure:: ../science/attachments/tabicl/tabicl_scale_bench.png
+   :align: center
+   :width: 60%
+
+   Rank (lower is best) as a function of dataset size.
+
+|
+
+All in all, TabICL is an excellent tabular predictor, and a push forward
+for tabular foundation models. From a foundamental standpoint, it shows
+that in-context learning is not only for few-shot learning, but that be
+very beneficial as sizes as large as *n=100 000*.
 
 .. note::
 

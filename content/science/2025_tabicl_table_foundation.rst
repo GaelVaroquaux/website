@@ -17,16 +17,16 @@ TabICL: Pretraining the best tabular learner
 .. contents::
    :depth: 2
 
-Recent progress in tabular learning: In Context Learning
+Recent progress in tabular learning: In-Context Learning
 ==========================================================
 
 Describing the statistical structure of tables in general is very subtle.
-They do have some unique statistical feature. For instance, each column
+They do have some unique statistical features. For instance, each column
 is typical meaningful by itself, and more than linear combinations of
 columns (data *non rotationally invariant*, cf `[Grinsztajn et al, 2022]
 <https://proceedings.neurips.cc/paper_files/paper/2022/hash/0378c7692da36807bdec87ab043cdadc-Abstract-Datasets_and_Benchmarks.html>`_).
 For long, tree-based models, in particular gradient-boosted trees, were
-the models that captured best this statistical structure.
+the models that best captured this statistical structure.
 
 The question is indeed: **how to build complex and rich inductive biases
 into statistical models**?
@@ -99,7 +99,7 @@ to a cost in *O(n p² + p n²)* for a table with *n* rows and *p* columns.
 TabICL's solution
 -------------------
 
-Rowwise encoding
+Row-wise encoding
 ..................
 
 .. figure:: ../science/attachments/tabicl/tabicl_architecture.png
@@ -177,12 +177,12 @@ on benchmarks:
    :align: right
 
    Experimental results, from a benchmark paper independent of the TabICL
-   paper: tabarena `[Erickson et al, 2025]
+   paper: TabArena `[Erickson et al, 2025]
    <https://arxiv.org/abs/2506.16791>`_
 
 |
 
-The benefit of TabICL becomes more marked for larger datasets:
+The benefit of TabICL over TabPFNv2 becomes more marked for larger datasets:
 
 .. figure:: ../science/attachments/tabicl/tabicl_scale_bench.png
    :align: center
@@ -194,8 +194,8 @@ The benefit of TabICL becomes more marked for larger datasets:
 
 All in all, TabICL is an excellent tabular predictor, and a push forward
 for tabular foundation models. From a foundamental standpoint, it shows
-that in-context learning is not only for few-shot learning, but that be
-very beneficial as sizes as large as *n=100 000*.
+that in-context learning is not only for few-shot learning, but that it can be
+very beneficial for sample sizes as large as *n=100 000*.
 
 .. note::
 

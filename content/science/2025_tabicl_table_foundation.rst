@@ -17,6 +17,13 @@ TabICL: Pretraining the best tabular learner
 .. contents::
    :depth: 2
 
+
+This note is about the research behind TabICL `[Qu et al 2025]
+<https://arxiv.org/abs/2502.05564>`_, work by Jing Qu, David Holzmüller,
+Marine le Morvan and myself, published at ICML 2025.
+
+|
+
 Recent progress in tabular learning: In-Context Learning
 ==========================================================
 
@@ -197,11 +204,31 @@ for tabular foundation models. From a foundamental standpoint, it shows
 that in-context learning is not only for few-shot learning, but that it can be
 very beneficial for sample sizes as large as *n=100 000*.
 
-.. note::
+|
+
+.. topic:: More about TabICL
+
+   There is a lot more in TabICL: the details of pretraining are crucial,
+   implementation uses memory offloading (which is facilitated by the
+   architecture, which dissociates the train X from the test y for most
+   of the operations). To learn more about TabICL:
+
+   * The paper: https://arxiv.org/abs/2502.05564
+
+   * The github code: **TabICL is 100% open source**
+     https://github.com/soda-inria/tabicl
+
+   * Install the Python package, TabICL is just one pip install away
+     https://pypi.org/project/tabicl/
+
+|
+
+.. topic:: Other topics in table foundation models: leveraging strings
 
    TabICL is only one aspect of table foundation models. We are pursuing
-   also another line of research that focuses on bringing knowledge about
-   the real world in table foundation models, see `CARTE
+   also another line of research that focuses on using strings (in
+   entries and column names) to bring knowledge about the real world in
+   table foundation models, see `CARTE
    <carte-toward-table-foundation-models.html>`_ and more recently `[Kim
    et al, 2025] <https://arxiv.org/abs/2505.14415>`_.
 

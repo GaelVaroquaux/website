@@ -9,7 +9,7 @@ TabICL: Pretraining the best tabular learner
 .. note::
 
    TabICL is a state-of-the-art tabular learner `[Qu et al 2025]
-   <https://arxiv.org/abs/2502.05564>`_. The key is it a very rich
+   <https://arxiv.org/abs/2502.05564>`_. The key is its very rich
    prior, that is baked in a pre-trained architecture -a table foundation
    model-, and leveraged by in-context-learning. Thanks to clever
    choices, it is fast and scalable, efficient even without a GPU.
@@ -29,7 +29,7 @@ Recent progress in tabular learning: In-Context Learning
 
 Describing the statistical structure of tables in general is very subtle.
 They do have some unique statistical features. For instance, each column
-is typical meaningful by itself, and more than linear combinations of
+is typically meaningful by itself, and more than linear combinations of
 columns (data *non rotationally invariant*, cf `[Grinsztajn et al, 2022]
 <https://proceedings.neurips.cc/paper_files/paper/2022/hash/0378c7692da36807bdec87ab043cdadc-Abstract-Datasets_and_Benchmarks.html>`_).
 For long, tree-based models, in particular gradient-boosted trees, were
@@ -68,7 +68,7 @@ Teaching transformers to predict well requires showing them many many
 prediction problems.
 
 The benefit of this approach is that these prediction problems can be
-chosen to reflect well the downstream task. In particular, in becomes now
+chosen to reflect well the downstream task. In particular, it becomes now
 easy to bake in any form of inductive bias by simulating data.
 
 TabPFN simulates data by cascading a series of simple transformations
@@ -149,14 +149,14 @@ this, we use a set transformer, which is a scalable transformer-like way
 of building a function on sets (but without the quadratic complexity).
 
 After pretraining, we find that the column embeddings have learned a
-mapping that implicit captures statistical aspects of the data
+mapping that implicitly captures statistical aspects of the data
 distribution in the column, as the kurtosis or the skewness.
 
 
 The result: a powerful and easy to use tabular learner
 =======================================================
 
-After a lot of pretraining on very well chosen synthetic data, TabICL is
+After a lot of pretraining on synthetic data, TabICL is
 a state-of-the-art tabular. Pretraining gave it the right inductive bias,
 as visible from the classifier-comparison plot below:
 
@@ -200,7 +200,7 @@ The benefit of TabICL over TabPFNv2 becomes more marked for larger datasets:
 |
 
 All in all, TabICL is an excellent tabular predictor, and a push forward
-for tabular foundation models. From a foundamental standpoint, it shows
+for tabular foundation models. From a fundamental standpoint, it shows
 that in-context learning is not only for few-shot learning, but that it can be
 very beneficial for sample sizes as large as *n=100 000*.
 

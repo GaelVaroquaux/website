@@ -19,8 +19,8 @@ TabICL: Pretraining the best tabular learner
 
 
 This note is about the research behind TabICL `[Qu et al 2025]
-<https://arxiv.org/abs/2502.05564>`_, work by Jing Qu, David Holzmüller,
-Marine le Morvan and myself, published at ICML 2025.
+<https://arxiv.org/abs/2502.05564>`_, work by Jingang Qu, David
+Holzmüller, myself, and Marine Le Morvan, published at ICML 2025.
 
 |
 
@@ -29,8 +29,9 @@ Recent progress in tabular learning: In-Context Learning
 
 Describing the statistical structure of tables in general is very subtle.
 They do have some unique statistical features. For instance, each column
-is typically meaningful by itself, and more than linear combinations of
-columns (data *non rotationally invariant*, cf `[Grinsztajn et al, 2022]
+is typically meaningful by itself, more meaningful than linear
+combinations of columns (data *non rotationally invariant*, cf
+`[Grinsztajn et al, 2022]
 <https://proceedings.neurips.cc/paper_files/paper/2022/hash/0378c7692da36807bdec87ab043cdadc-Abstract-Datasets_and_Benchmarks.html>`_).
 For long, tree-based models, in particular gradient-boosted trees, were
 the models that best captured this statistical structure.
@@ -38,9 +39,8 @@ the models that best captured this statistical structure.
 The question is indeed: **how to build complex and rich inductive biases
 into statistical models**?
 
-The group of `F. Hutter
-<https://ml.informatik.uni-freiburg.de/profile/hutter>`_ pionneered new
-answers to this question with their TabPFN work `[Hollmann et al, 2025]
+A pioneering contribution to this question was made with the TabPFN
+approach `[Hollmann et al, 2025]
 <https://www.nature.com/articles/s41586-024-08328-6>`_.
 
 Tabular learning as a completion problem
@@ -156,9 +156,9 @@ distribution in the column, as the kurtosis or the skewness.
 The result: a powerful and easy to use tabular learner
 =======================================================
 
-After a lot of pretraining on synthetic data, TabICL is
-a state-of-the-art tabular. Pretraining gave it the right inductive bias,
-as visible from the classifier-comparison plot below:
+After a lot of pretraining on synthetic data, TabICL is a
+state-of-the-art tabular learner. Pretraining gave it the right inductive
+bias, as visible from the classifier-comparison plot below:
 
 .. figure:: ../science/attachments/tabicl/tabicl_comparison.png
    :width: 100%
@@ -167,7 +167,7 @@ as visible from the classifier-comparison plot below:
    boundaries on very simple toy data. It is useful to get a feeling of
    how classifiers behave.
 
-It is interesting to see that while TabICL form very flexible decision
+It is interesting to see that while TabICL forms very flexible decision
 boundaries, they do extend along the horizontal and vertical axes, as the
 decision tree and random forest. These axis-aligned features are a
 very important aspect of the inductive bias.
@@ -196,6 +196,10 @@ The benefit of TabICL over TabPFNv2 becomes more marked for larger datasets:
    :width: 60%
 
    Rank (lower is best) as a function of dataset size.
+
+However, one limitation to keep in mind is that with in-context learners,
+as TabICL or TabPFN, inference (prediction on new datapoint) ican be
+costly.
 
 |
 

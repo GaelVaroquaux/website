@@ -2,9 +2,8 @@
 TabICL: Pretraining the best tabular learner
 ========================================================
 
-:date: 2025-07-08
+:date: 2025-07-09
 :tags: machine learning, tabular learning, foundation models
-:status: draft
 
 .. note::
 

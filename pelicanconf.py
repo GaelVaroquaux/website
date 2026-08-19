@@ -89,7 +89,7 @@ SOCIAL = (
     ('bluesky', 'fa-brands fa-bluesky', 'https://bsky.app/profile/gaelvaroquaux.bsky.social', ''),
     ('GitHub', 'fa-brands fa-github', GITHUB_URL, ''),
     ("Artwork", 'fa-solid fa-camera-retro',
-     'http://www.flickriver.com/photos/gaelvaroquaux/popular-interesting/',
+     'https://www.flickr.com/people/gaelvaroquaux',
 """<div class="extra"><div id="flickrstream"></div></div>"""),
 )
 # Linkedin, slideshare

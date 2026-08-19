@@ -19,7 +19,8 @@ TabICL: Pretraining the best tabular learner
 
 This note is about the research behind TabICL `[Qu et al 2025]
 <https://arxiv.org/abs/2502.05564>`_, work by Jingang Qu, David
-Holzmüller, myself, and Marine Le Morvan, published at ICML 2025.
+Holzmüller, myself, and Marine Le Morvan, published at ICML 2025, and
+available as `open-source software <https://tabicl.readthedocs.io/en/latest/>`_.
 
 |
 

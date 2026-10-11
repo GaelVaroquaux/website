@@ -112,6 +112,7 @@ supervised learning on these features.
    :align: center
    :width: 600
    :target: https://www.sciencedirect.com/science/article/abs/pii/S1053811919301594
+   :alt: Summarizing our benchmark results
 
    Summarizing our benchmark results.
 
@@ -213,6 +214,7 @@ Covariance Estimation.
    :align: center
    :width: 600
    :target: https://www.sciencedirect.com/science/article/abs/pii/S1361841518301014
+   :alt: Estimation strategy
 
    Schema of the estimation strategy: projecting the covariances matrices
    into a tangent space, shrinkage to a group mean, but taking in account
@@ -231,6 +233,7 @@ the larger the benefits.
    :align: center
    :width: 500
    :target: https://www.sciencedirect.com/science/article/abs/pii/S1361841518301014
+   :alt: Age learning curve
 
    Error in predicting brain aging decreases when more individuals are used
    to build the biomarker.
@@ -275,6 +278,7 @@ representations, which greatly speeds up the algorithm.
    :align: center
    :width: 600
    :target: http://proceedings.mlr.press/v97/aydore19a.html
+   :alt: Stochasting grouping MLP
 
    At each step of a stochastic gradient descent, we randomly pick a
    feature-grouping matrix (itself estimated from the data), and use it
@@ -292,6 +296,7 @@ speeds up convergence.
    :align: center
    :width: 600
    :target: http://proceedings.mlr.press/v97/aydore19a.html
+   :alt: Stochasting grouping MLP
 
    Prediction accuracy as a function of training time -- left: on
    realigned faces -- right: on brain images

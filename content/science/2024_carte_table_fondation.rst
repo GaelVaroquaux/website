@@ -270,7 +270,7 @@ it gives really strong baselines.
 different conventions, we show that I can use large source tables, to
 boost prediction on the smaller target table.
 
-.. figure:: attachments/carte/carte_joint_learning.png
+.. image:: attachments/carte/carte_joint_learning.png
    :align: right
    :width: 600
 

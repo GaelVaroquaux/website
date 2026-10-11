@@ -34,6 +34,7 @@ ____
 .. figure:: http://nilearn.github.io/_images/sphx_glr_plot_mixed_gambles_space_net_001.png
     :align: right
     :target: http://nilearn.github.io/auto_examples/decoding/plot_mixed_gambles_space_net.html
+    :alt: Space net
 
 **Space net: spatial regularizations in decoding**
 
@@ -47,6 +48,7 @@ ____
 .. figure:: http://nilearn.github.io/_images/sphx_glr_plot_compare_resting_state_decomposition_002.png
     :align: right
     :target: http://nilearn.github.io/auto_examples/connectivity/plot_compare_resting_state_decomposition.html
+    :alt: Resting-state decomposition
 
 
 **Dictionnary learning for resting-state parcellations**
@@ -59,6 +61,7 @@ ____
 .. figure:: http://nilearn.github.io/_images/sphx_glr_plot_prob_atlas_003.png
     :align: right
     :target: http://nilearn.github.io/auto_examples/manipulating_visualizing/plot_prob_atlas.html#sphx-glr-auto-examples-manipulating-visualizing-plot-prob-atlas-py
+    :alt: Plot prob atlas
 
 **Plotting sets of probabilistic maps**
 
@@ -71,6 +74,7 @@ ____
 .. figure:: http://nilearn.github.io/_images/sphx_glr_plot_extract_rois_statistical_maps_003.png
     :align: right
     :target: http://nilearn.github.io/auto_examples/manipulating_visualizing/plot_extract_rois_statistical_maps.html
+    :alt: Plot extract ROIs
     
 **Separating regions out of maps**
 

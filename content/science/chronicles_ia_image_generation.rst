@@ -8,7 +8,7 @@ How do AI generate images?
 
 .. image:: ../science/attachments/robot_painting.jpg
    :align: right
-   :scale: 15 %
+   :width: 50 %
    :class: small
    :alt: Image generated with Mistral, with the prompt "Please generate an image of a cute robot painting a picture"
 

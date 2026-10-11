@@ -7,7 +7,7 @@ AIs that break down questions reason better
 
 .. image:: ../science/attachments/ai_thinking.jpg
    :align: right
-   :scale: 15 %
+   :width: 50 %
    :class: small
    :alt: Image generated with "LeChat", with the prompt "Please generate an image of an AI that is thinking deeply. Philosophical references may be welcomed, for instance like the classic hamlet holding skull cliché."
 

@@ -19,4 +19,4 @@ I hope this script inspires people trying to visualize graphs. The
 combination of the GaussianSplatter filter and the volume rendering to
 create a halo renders really well, IMHO.
 
-.. image:: {filename}attachments/protein_mayavi.png
+.. image:: {static}attachments/protein_mayavi.png

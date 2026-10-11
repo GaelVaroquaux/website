@@ -217,7 +217,7 @@ tree-building strategy, on a variety of datasets, both real-life and
 artificial. Below if a summary plot giving relative performance of
 neighbor search
 
-.. figure:: {filename}attachments/sklearn_0.14.X_speed/nn_trees.png
+.. figure:: {static}attachments/sklearn_0.14.X_speed/nn_trees.png
   :width: 60%
   :align: center
 
@@ -352,7 +352,7 @@ sprint). As an illustration, here is the diagram of commits as can be
 seen on Github. The huge spike correspond to the second international
 sprint: Paris 2013.
 
-.. figure:: {filename}attachments/sklearn_0.14.X_speed/commit_graph.png
+.. figure:: {static}attachments/sklearn_0.14.X_speed/commit_graph.png
    :align: center
    :width: 100%
 

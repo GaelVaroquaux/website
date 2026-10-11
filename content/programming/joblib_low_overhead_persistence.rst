@@ -39,7 +39,7 @@ Limitations of the old implementation
 because of internal copies of data, limiting the maximum size
 of usable data with compressed persistence:
 
-.. image:: {filename}attachments/old_pickle_mem_profile.png
+.. image:: {static}attachments/old_pickle_mem_profile.png
    :class: large
 
 We see the increased memory usage during the calls to ``dump`` and
@@ -82,7 +82,7 @@ What's new: compression, low memory...
 
 ❶ **Memory usage is now stable**:
 
-.. image:: {filename}attachments/new_pickle_mem_profile.png
+.. image:: {static}attachments/new_pickle_mem_profile.png
 
 ❷ **All numpy arrays are persisted in a single file**:
  
@@ -130,7 +130,7 @@ with different libraries:
 * Pickle
 * Numpy
 
-.. image:: {filename}attachments/persistence_lfw_bench.png
+.. image:: {static}attachments/persistence_lfw_bench.png
     :class: large
 
            

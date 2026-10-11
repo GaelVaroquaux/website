@@ -12,7 +12,7 @@ are all too frequent, and weight a lot on my view of code design.
 My stance on code design
 ------------------------
 
-.. image:: {filename}attachments/software_design_for_maintainability/cool-car-drawing-5.jpg
+.. image:: {static}attachments/software_design_for_maintainability/cool-car-drawing-5.jpg
     :align: right
     :width: 30%
 
@@ -53,7 +53,7 @@ best practices).
    problems. This is known as the `"YAGNI principle"
    <http://en.wikipedia.org/wiki/You_aren't_gonna_need_it>`_.
 
-.. image:: {filename}attachments/software_design_for_maintainability/howtobuildmvp.gif
+.. image:: {static}attachments/software_design_for_maintainability/howtobuildmvp.gif
     :align: center
     :width: 60%
 
@@ -90,7 +90,7 @@ Coding for others to debug
     Therefore, if you write the code as cleverly as possible, you are,
     by definition, not smart enough to debug it." - Brian W. Kernighan
 
-.. image:: {filename}attachments/software_design_for_maintainability/auto-graveyard-1.jpg
+.. image:: {static}attachments/software_design_for_maintainability/auto-graveyard-1.jpg
     :align: right
     :width: 40%
 
